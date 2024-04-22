@@ -49,6 +49,7 @@ body {
   font-style: normal;
   font-weight: 400;
   margin: 0;
+
 }
 
 p {
@@ -83,6 +84,7 @@ div.clear {
   overflow-x: hidden;
   overflow-y: auto;
   padding-top: 80px;
+  background-color: #282a36;
 }
 
 .hidden {
