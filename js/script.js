@@ -346,7 +346,7 @@ async function clickProgram() {
     if (selectedModel === "CYD") {
         selectedFiles = MCYDlatestFiles;
     } else if (selectedModel === "CYDNOGPS") {
-        selectedFiles = MCYD2USBNOGPSlatestFiles;
+        selectedFiles = MCYDNOGPSlatestFiles;
     } else if (selectedModel === "CYD2USB") {
         selectedFiles = MCYD2USBlatestFiles;
     } else if (selectedModel === "CYD2USBNOGPS") {
