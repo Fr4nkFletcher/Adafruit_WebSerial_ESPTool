@@ -5,19 +5,19 @@
 .header {
   box-sizing: border-box;
   font-size: 16px;
-  height: 85px;
+  height: 75px;
   line-height: 40px;
   padding: 20px 70px 0px 70px; /* TRouBLe */
   position: fixed;
   width: 100%;
   z-index: 1000;
   margin: 0;
-  border-bottom: 5px solid #00a7e9;
+  border-bottom: 5px solid #6272a4;
 }
 
 .header h1 {
   flex: 1;
-  font-size: 20px;
+  font-size: 15px;
   font-weight: 400;
 }
 
