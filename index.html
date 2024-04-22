@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <title>Adafruit ESPTool</title>
+    <title>CYM WebFlasher</title>
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -18,20 +18,7 @@
     <!-- import the web page's stylesheets along with the themes -->
     <link rel="stylesheet" href="https://use.typekit.net/qtk5kiq.css" />
     <link rel="stylesheet" href="css/style.css" />
-    <link
-      rel="stylesheet"
-      href="css/light.css"
-      id="light"
-      class="alternate"
-      disabled
-    />
-    <link
-      rel="stylesheet"
-      href="css/dark.css"
-      id="dark"
-      class="alternate"
-      disabled
-    />
+    <link rel="stylesheet" href="css/dark.css" id="dark">
 
     <!-- import the webpage's javascript file -->
     <script module>
@@ -42,136 +29,71 @@
           : "https://cdn.jsdelivr.net/gh/adafruit/Adafruit_WebSerial_ESPTool@latest/dist/web/index.js"
       );
     </script>
-    <script src="js/script.js" module defer></script>
+    <script src="js/variables.js" module defer></script>
+   <script src="js/script.js" module defer></script>
   </head>
   <body>
     <header class="header">
       <div class="left">
-        <img src="assets/header.svg" class="Adafruit-Logo">
+        <img src="assets/logo0.png" class="Adafruit-Logo">
       </div>
       <div class="right">
-        <select id="baudRate"></select>
         <button id="butConnect" type="button">Connect</button>
+        <button id="butSerialTerminal" type="button" onclick="window.location='https://fr4nkfletcher.github.io/ESP32-Marauder-Cheap-Yellow-Display/serial_terminal.html';">Serial Terminal</button>
       </div>
     </header>
     <main class="main">
-      <div id="notSupported" class="notSupported">
-        Sorry, <b>Web Serial</b> is not supported on this device, make sure
-        you're running Chrome 89 or later.
-      </div>
       <div class="subheader">
-        <div class="title left">Adafruit ESPTool</div>
+        <div class="title left">ESP32Marauder CYD Webflasher</div>
         <div class="right">
-          <label for="darkmode"> Dark Mode </label>
-          <div class="onoffswitch">
-            <input
-              type="checkbox"
-              name="darkmode"
-              class="onoffswitch-checkbox"
-              id="darkmode"
-            />
-            <label class="onoffswitch-label" for="darkmode">
-              <span class="onoffswitch-inner"></span>
-              <span class="onoffswitch-switch"></span>
-            </label>
+        
           </div>
         </div>
       </div>
-      <div id="app">
-        <div id="commands">
+ <div id="app">
+        <div id="commands" class="connected">
           <div class="upload">
-            <label
-              >Offset: 0x
-              <input class="offset" type="text" value="0" />
-            </label>
             <label class="firmware">
-              <input type="file" accept=".bin" />
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                width="20"
-                height="17"
-                viewbox="0 0 20 17"
-              >
-                <path
-                  d="M10 0l-5.2 4.9h3.3v5.1h3.8v-5.1h3.3l-5.2-4.9zm9.3 11.5l-3.2-2.1h-2l3.4 2.6h-3.5c-.1 0-.2.1-.2.1l-.8 2.3h-6l-.8-2.2c-.1-.1-.1-.2-.2-.2h-3.6l3.4-2.6h-2l-3.2 2.1c-.4.3-.7 1-.6 1.5l.6 3.1c.1.5.7.9 1.2.9h16.3c.6 0 1.1-.4 1.3-.9l.6-3.1c.1-.5-.2-1.2-.7-1.5z"
-                />
-              </svg>
-              <span>Choose a file&hellip;</span>
+              <div class="model-select">
+                <label for="modelSelect">Select Model:</label>
+                <select id="modelSelect" class="dropdown">
+                  <option value="NULL" disabled selected style="display:none;"><b>--- SELECT BOARD ---</b></option>
+                  <optgroup label="--- SELECT BOARD ---">
+          <optgroup label="+ ESP32-2432S028R Cheap-Yellow-Display">
+          <option value="CYD">- CYD MicroUSB-only</option>
+          <option value="CYDNOGPS">- CYD MicroUSB-only w/o GPS</option>
+          <option value="CYD2USB">- CYD2USB</option>
+          <option value="CYD2USBNOGPS">- CYD2USB w/o GPS</option>
+                  <!-- <option value="S2SD">- Flipper Dev Board (SDcard)</option> -->
+          </optgroup>
+
+                </select>
+                <select id="versionSelect" class="dropdown">
+                  <option value="NULL" disabled selected style="display:none;"><b>--- VERSION ---</b></option>
+                  <optgroup label="--- VERSION ---"></optgroup>
+                 <option value="latest">Latest 0.13.9</option>
+              </select>
+              <select id="variantSelect" class="dropdown">
+                <option value="NULL" disabled selected style="display:none;"><b>--- FIRMWARE ---</b></option>
+                <optgroup label="--- FIRMWARE ---"></optgroup>
+                 <option value="Marauder">Marauder</option>
+                 <!-- <option value="EvilPortal">Evil Portal</option> -->
+                 <!-- Add more options for other variants if needed -->
+              </select>
+              </div>
             </label>
-            <div class="progress-bar hidden"><div></div></div>
-          </div>
-          <div class="upload">
-            <label
-              >Offset: 0x
-              <input class="offset" type="text" value="0" />
-            </label>
-            <label class="firmware">
-              <input type="file" accept=".bin" />
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                width="20"
-                height="17"
-                viewbox="0 0 20 17"
-              >
-                <path
-                  d="M10 0l-5.2 4.9h3.3v5.1h3.8v-5.1h3.3l-5.2-4.9zm9.3 11.5l-3.2-2.1h-2l3.4 2.6h-3.5c-.1 0-.2.1-.2.1l-.8 2.3h-6l-.8-2.2c-.1-.1-.1-.2-.2-.2h-3.6l3.4-2.6h-2l-3.2 2.1c-.4.3-.7 1-.6 1.5l.6 3.1c.1.5.7.9 1.2.9h16.3c.6 0 1.1-.4 1.3-.9l.6-3.1c.1-.5-.2-1.2-.7-1.5z"
-                />
-              </svg>
-              <span>Choose a file&hellip;</span>
-            </label>
-            <div class="progress-bar hidden"><div></div></div>
-          </div>
-          <div class="upload">
-            <label
-              >Offset: 0x
-              <input class="offset" type="text" value="0" />
-            </label>
-            <label class="firmware">
-              <input type="file" accept=".bin" />
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                width="20"
-                height="17"
-                viewbox="0 0 20 17"
-              >
-                <path
-                  d="M10 0l-5.2 4.9h3.3v5.1h3.8v-5.1h3.3l-5.2-4.9zm9.3 11.5l-3.2-2.1h-2l3.4 2.6h-3.5c-.1 0-.2.1-.2.1l-.8 2.3h-6l-.8-2.2c-.1-.1-.1-.2-.2-.2h-3.6l3.4-2.6h-2l-3.2 2.1c-.4.3-.7 1-.6 1.5l.6 3.1c.1.5.7.9 1.2.9h16.3c.6 0 1.1-.4 1.3-.9l.6-3.1c.1-.5-.2-1.2-.7-1.5z"
-                />
-              </svg>
-              <span>Choose a file&hellip;</span>
-            </label>
-            <div class="progress-bar hidden"><div></div></div>
-          </div>
-          <div class="upload">
-            <label
-              >Offset: 0x
-              <input class="offset" type="text" value="0" />
-            </label>
-            <label class="firmware">
-              <input type="file" accept=".bin" />
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                width="20"
-                height="17"
-                viewbox="0 0 20 17"
-              >
-                <path
-                  d="M10 0l-5.2 4.9h3.3v5.1h3.8v-5.1h3.3l-5.2-4.9zm9.3 11.5l-3.2-2.1h-2l3.4 2.6h-3.5c-.1 0-.2.1-.2.1l-.8 2.3h-6l-.8-2.2c-.1-.1-.1-.2-.2-.2h-3.6l3.4-2.6h-2l-3.2 2.1c-.4.3-.7 1-.6 1.5l.6 3.1c.1.5.7.9 1.2.9h16.3c.6 0 1.1-.4 1.3-.9l.6-3.1c.1-.5-.2-1.2-.7-1.5z"
-                />
-              </svg>
-              <span>Choose a file&hellip;</span>
-            </label>
-            <div class="progress-bar hidden"><div></div></div>
-          </div>
+            <br><br>
+          </div> 
           <div class="buttons">
-            <button id="butErase" type="button" disabled="disabled">
-              Erase
-            </button>
             <button id="butProgram" type="button" disabled="disabled">
               Program
             </button>
+            <button id="butErase" type="button" disabled="disabled">
+              Erase
+            </button>
           </div>
         </div>
+        <div id="flashMessages" class="flashMessages"></div>
         <div id="log"></div>
       </div>
     </main>
@@ -195,8 +117,11 @@
         <button id="butClear" type="button">Clear Text</button>
       </div>
       <div class="center">
-        Written by <a href="https://github.com/makermelissa">Melissa LeBlanc-Williams</a> for Adafruit Industries.
-      </div>
+        ✨ <a href="https://github.com/Fr4nkFletcher/ESP32-Marauder-Cheap-Yellow-Display"
+          >Cheap-Yellow-Marauder</a
+        > &mdash;
+        Installer powered by <a href="https://esphome.github.io/esp-web-tools/">Adafruit WebSerial ESPTool</a> 🛠️
+    </div>
     </footer>
   </body>
 </html>

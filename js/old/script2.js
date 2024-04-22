@@ -1,6 +1,6 @@
 let espStub;
 
-const baudRates = 115200;
+const baudRates = [921600, 115200, 230400, 460800];
 
 const bufferSize = 512;
 const colors = ["#00a7e9", "#f89521", "#be1e2d"];
@@ -14,8 +14,8 @@ const butErase = document.getElementById("butErase");
 const butProgram = document.getElementById("butProgram");
 const lightSS = document.getElementById("light");
 const modelSelect = document.getElementById("modelSelect");
-//const versionSelect = document.getElementById("versionSelect");
-//const variantSelect = document.getElementById("variantSelect");
+const versionSelect = document.getElementById("versionSelect");
+const variantSelect = document.getElementById("variantSelect");
 const offsets = [0x1000, 0x8000, 0xE000, 0x10000];
 const offsets2 = [0x0, 0x8000, 0xE000, 0x10000];
 
@@ -52,23 +52,34 @@ document.addEventListener("DOMContentLoaded", () => {
         // Handle model change if needed
     });
 
+    versionSelect.addEventListener("change", () => {
+        const selectedVersion = versionSelect.value;
+        // Handle version change if needed
+    });
 
+    variantSelect.addEventListener("change", () => {
+        const selectedVarient = variantSelect.value;
+        // Handle varient change if needed
+    });
     modelSelect.addEventListener("change", checkDropdowns);
-  
+    versionSelect.addEventListener("change", checkDropdowns);
+    variantSelect.addEventListener("change", checkDropdowns);
+
     function checkDropdowns() {
         const isAnyDropdownNull = [modelSelect.value, versionSelect.value, variantSelect.value].includes("NULL");
         const isBoardNotS2 = (modelSelect.value !== "S2" && modelSelect.value !== "S2SD");
         const isBlackMagicSelected = variantSelect.value === "BlackMagic";
 
         if (isAnyDropdownNull || (isBoardNotS2 && isBlackMagicSelected)) {
-            butProgram.disabled = false;
+            butProgram.disabled = true;
         } else {
             butProgram.disabled = false;
         }
     }
 
     modelSelect.addEventListener('change', checkDropdowns);
-
+    versionSelect.addEventListener('change', checkDropdowns);
+    variantSelect.addEventListener('change', checkDropdowns);
 
     checkDropdowns();
     logMsg("ESP Web Flasher loaded.");
@@ -89,7 +100,7 @@ function logMsg(text) {
 
 
 function annMsg(text) {
-    log.innerHTML += `<font color='#6272a4'>` + text + `<br></font>`;
+    log.innerHTML += `<font color='#FF8200'>` + text + `<br></font>`;
 
     if (log.textContent.split("\n").length > maxLogLength + 1) {
         let logLines = log.innerHTML.replace(/(\n)/gm, "").split("<br>");
@@ -202,7 +213,7 @@ async function clickConnect() {
         checkDropdowns();
     } catch (err) {
         // Handle errors
-        butProgram.disabled = false; // Keep or make the button disabled on error
+        butProgram.disabled = true; // Keep or make the button disabled on error
     }
 
     const esploaderMod = await window.esptoolPackage;
@@ -263,7 +274,7 @@ function createProgressBarDialog() {
     progressBarDialog.style.transform = "translate(-50%, -50%)";
     progressBarDialog.style.padding = "40px"; 
     progressBarDialog.style.backgroundColor = "#333333";
-    progressBarDialog.style.border = "2px solid #6272a4";
+    progressBarDialog.style.border = "2px solid #f89521";
     progressBarDialog.style.borderRadius = "10px";
     progressBarDialog.style.color = "white";
     progressBarDialog.style.zIndex = "1000";
@@ -273,17 +284,10 @@ function createProgressBarDialog() {
     progressBarDialog.style.boxSizing = "border-box"; // Include padding in width calculation
     progressBarDialog.style.overflow = "hidden"; // Prevent content from spilling out
     progressBarDialog.innerHTML = `
-        <div class="blinking-text" style="margin-bottom: 10px; color: #f8f8f2; animation: blink-animation 1.5s steps(2, start) infinite;">Flashing...</div>
-<style>
-  @keyframes blink-animation {
-    to {
-        visibility: hidden;
-    }
-}
-</style>
-<div id="progressBar" style="width: 100%; background-color: #44475a; border: 1px solid #e0e0e0; border-radius: 4px;">
-    <div id="progress" style="width: 0%; height: 20px; background-color: #6272a4; border-radius: 4px; transition: width 0.5s ease;"></div>
-</div>
+        <div class="blinking-text" style="margin-bottom: 20px;">Flashing in progress...</div>
+        <div id="progressBar" style="width: 100%; background-color: #e0e0e0; border-radius: 8px;">
+            <div id="progress" style="width: 0%; height: 30px; background-color: #f89521; border-radius: 8px; transition: width 0.5s ease;"></div>
+        </div>
     `;
 
     document.body.appendChild(progressBarDialog);
@@ -343,15 +347,7 @@ async function clickProgram() {
 
     let selectedFiles;
 
-    if (selectedModel === "CYD") {
-        selectedFiles = MCYDlatestFiles;
-    } else if (selectedModel === "CYDNOGPS") {
-        selectedFiles = MCYD2USBNOGPSlatestFiles;
-    } else if (selectedModel === "CYD2USB") {
-        selectedFiles = MCYD2USBlatestFiles;
-    } else if (selectedModel === "CYD2USBNOGPS") {
-        selectedFiles = MCYD2USBNOGPSlatestFiles;
-    } else if (selectedModel === "S2") {
+	if (selectedModel === "S2") {
 		selectedFiles = selectedVersion === "latest" ? 
 			(selectedVariant === "Marauder" ? Mlatests2Files : 
 				(selectedVariant === "BlackMagic" ? Blatests2Files : "NULL")) 
@@ -416,7 +412,7 @@ async function clickProgram() {
     butErase.disabled = true;
     butProgram.disabled = true;
 
-    const fileTypes = ['bootloader', 'partitions', 'firmware'];
+    const fileTypes = ['bootloader', 'partitions', 'boot_app0', 'firmware'];
     initMsg(` `);
     initMsg(` !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! `);
     initMsg(` !!!&nbsp;&nbsp; FLASHING STARTED! DO NOT UNPLUG &nbsp;!!! `);
@@ -462,16 +458,12 @@ async function clickProgram() {
         let fileResource = selectedFiles[fileType];
 
         let offset;
-                    if (selectedModel === "CYD") {
-            offset = [0x1000, 0x8000, 0x10000][fileTypes.indexOf(fileType)];
-        } else if (selectedModel === "CYDNOGPS") {
-            offset = [0x1000, 0x8000, 0x10000][fileTypes.indexOf(fileType)];
-        } else if (selectedModel === "CYD2USB") {
-            offset = [0x1000, 0x8000, 0x10000][fileTypes.indexOf(fileType)];
-        } else if (selectedModel === "CYD2USBNOGPS") {
-            offset = [0x1000, 0x8000, 0x10000][fileTypes.indexOf(fileType)];        
+                    if (selectedModel === "S3") {
+            offset = [0x0, 0x8000, 0xE000, 0x10000][fileTypes.indexOf(fileType)];
+        } else {
+            offset = [0x1000, 0x8000, 0xE000, 0x10000][fileTypes.indexOf(fileType)];
         }
-
+        
         try {
             let binfile = new File([await fetch(fileResource).then(r => r.blob())], fileType + ".bin");
             let contents = await readUploadedFileAsArrayBuffer(binfile);
