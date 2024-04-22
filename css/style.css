@@ -96,8 +96,8 @@ div.clear {
 }
 
 .subheader {
-  height: 85px;
-  line-height: 85px;
+  height: 75px;
+  line-height: 75px;
   padding-left: 70px;
   padding-right: 70px;
 }
@@ -108,11 +108,11 @@ div.clear {
 }
 
 #app.connected #commands {
-  height: 200px;
+  height: 100px;
 }
 
 #app.connected #log {
-  height: calc(100vh - 530px);
+  height: calc(100vh - 330px);
 }
 
 #app #commands {
@@ -120,7 +120,7 @@ div.clear {
 }
 
 #app #log {
-  height: calc(100vh - 330px);
+  height: calc(100vh - 275px);
 }
 
 #commands,
@@ -157,8 +157,20 @@ div.clear {
 }
 
 .footer {
-  padding-left: 70px;
-  padding-right: 70px;
+    padding-left: 70px;
+    padding-right: 70px;
+    position: fixed;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    height: 75px; /* Set the height to 200px */
+    background-color: #282a36; /* Example background color, adjust as needed */
+    color: #ffffff; /* Text color, adjust as needed */
+    padding: 20px;
+    box-sizing: border-box;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 }
 
 .footer a {
