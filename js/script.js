@@ -89,7 +89,7 @@ function logMsg(text) {
 
 
 function annMsg(text) {
-    log.innerHTML += `<font color='#6272a4'>` + text + `<br></font>`;
+    log.innerHTML += `<font color='#FF9999'>` + text + `<br></font>`;
 
     if (log.textContent.split("\n").length > maxLogLength + 1) {
         let logLines = log.innerHTML.replace(/(\n)/gm, "").split("<br>");
@@ -284,6 +284,7 @@ function createProgressBarDialog() {
 <div id="progressBar" style="width: 100%; background-color: #44475a; border: 1px solid #e0e0e0; border-radius: 4px;">
     <div id="progress" style="width: 0%; height: 20px; background-color: #6272a4; border-radius: 4px; transition: width 0.5s ease;"></div>
 </div>
+<div style="margin-top: 10px; color: #FF9999; font-style: italic; font-size: 16px;">Flashing process will take at least 2 minutes.</div>
     `;
 
     document.body.appendChild(progressBarDialog);
@@ -421,7 +422,6 @@ async function clickProgram() {
     initMsg(` !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! `);
     initMsg(` !!!&nbsp;&nbsp; FLASHING STARTED! DO NOT UNPLUG &nbsp;!!! `);
     initMsg(` !!!&nbsp;&nbsp;&nbsp;&nbsp; UNTIL FLASHING IS COMPLETE!! &nbsp;&nbsp;!!! `);
-    initMsg(` !!!&nbsp;&nbsp; Flashing will take 2 minutes. &nbsp;&nbsp;&nbsp;!!! `);
     initMsg(` !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! `);
     initMsg(` `);
     const flashingMessages = document.getElementById("flashMessages");
