@@ -159,20 +159,23 @@ div.clear {
 }
 
 .footer {
-    padding-left: 70px;
-    padding-right: 70px;
+    display: flex;
+    justify-content: space-between;  /* Maintains space between the three main divs */
+    align-items: center;  /* Aligns items vertically in the center */
+    padding: 20px 70px;  /* Add padding on the sides of the footer */
     position: fixed;
     left: 0;
     right: 0;
     bottom: 0;
-    height: 75px; /* Set the height to 200px */
-    background-color: #282a36; /* Example background color, adjust as needed */
-    color: #ffffff; /* Text color, adjust as needed */
-    padding: 20px;
-    box-sizing: border-box;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+    height: 45px;
+    background-color: #282a36;
+    color: #ffffff;
+}
+
+.footer .center,
+.footer .controls {
+    flex: 1;  /* Each section takes equal space */
+    text-align: center;  /* Centers text in each section */
 }
 
 .footer a {
@@ -181,6 +184,11 @@ div.clear {
 
 .footer .controls {
   line-height: 45px;
+}
+
+.footer .center {
+    width: 76%;  // Ensures the div takes up all the available horizontal space
+    text-align: center;  // Centers the content text-wise
 }
 
 .footer button {
