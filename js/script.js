@@ -421,6 +421,7 @@ async function clickProgram() {
     initMsg(` !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! `);
     initMsg(` !!!&nbsp;&nbsp; FLASHING STARTED! DO NOT UNPLUG &nbsp;!!! `);
     initMsg(` !!!&nbsp;&nbsp;&nbsp;&nbsp; UNTIL FLASHING IS COMPLETE!! &nbsp;&nbsp;!!! `);
+    initMsg(` !!!&nbsp;&nbsp; Flashing will take 2 minutes. &nbsp;&nbsp;&nbsp;!!! `);
     initMsg(` !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! `);
     initMsg(` `);
     const flashingMessages = document.getElementById("flashMessages");
