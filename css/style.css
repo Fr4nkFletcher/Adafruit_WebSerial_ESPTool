@@ -4,6 +4,8 @@
 
 .header {
   box-sizing: border-box;
+  display: flex;
+  align-items: center;
   font-size: 16px;
   height: 85px;
   line-height: 40px;
@@ -21,18 +23,7 @@
   font-weight: 400;
 }
 
-.header button {
-  border: solid 2px #fff;
-  background-color: #000;
-  color: #fff;
-  margin-left: 20px;
-  height: 30px;
-}
 
-.header button:hover {
-  background-color: #fff;
-  color: #000;
-}
 
 button,
 .firmware {
@@ -41,7 +32,29 @@ button,
   border-radius: 15px;
   padding-left: 20px;
   padding-right: 20px;
-  border-width: 2px;
+  border-width: 3px;
+  margin-right: 20px;
+  border-color: #6272a4; /* Light pinkish-purple, typical for the Dracula theme */
+  background-color: #44475a; /* A soft dark grey */
+  color: #f8f8f2; /* Off-white text */
+  transition: background-color 0.3s, color 0.3s, border-color 0.3s; /* Smooth transition for hover effects */
+  outline: none; /* Removes the outline to clean up the appearance */
+}
+
+/* Hover State for Buttons */
+.header button:hover,
+.firmware:hover {
+  background-color: #282a36; /* A moderate blue, gives a gentle contrast */
+  color: #6272a4; /* Dark background color */
+  border-color: #bd93f9; /* Vibrant green for a noticeable hover effect */
+}
+
+/* Active State for Buttons */
+.header button:active,
+.firmware:active {
+  background-color: #ff5555; /* A vibrant red for active state */
+  color: #f8f8f2;
+  border-color: #bd93f9; /* Purple, provides a good contrast with the red */
 }
 
 body {
@@ -194,6 +207,32 @@ div.clear {
 .footer button {
   font-size: 14px;
   margin: 0 10px;
+}
+
+.footer #butClear {
+  height: 25px;
+  font-size: 16px;
+  border-radius: 15px;
+  padding-left: 20px;
+  padding-right: 20px;
+  border-width: 3px;
+  border-color: #6272a4;  // Light pinkish-purple
+  background-color: #44475a;  // Soft dark grey
+  color: #f8f8f2;  // Off-white text
+  transition: background-color 0.3s, color 0.3s, border-color 0.3s;
+  outline: none;
+}
+
+.footer #butClear:hover {
+  background-color: #282a36;  // Moderate blue
+  color: #ffffff;
+  border-color: #bd93f9;  // Vibrant purple
+}
+
+.footer #butClear:active {
+  background-color: #ff5555;  // Vibrant red
+  color: #6272a4;
+  border-color: #bd93f9;  // Purple
 }
 
 .remix {
