@@ -336,11 +336,11 @@ async function clickProgram() {
             reader.readAsArrayBuffer(inputFile);
         });
     };
-    const selectedModel = modelSelect.value;
-    const selectedVersion = versionSelect.value;
-    const selectedVariant = variantSelect.value;
-    const progressBarDialog = createProgressBarDialog();
-    const progress = document.getElementById("progress");
+     const selectedModel = modelSelect.value;
+    //const selectedVersion = versionSelect.value;
+    //const selectedVariant = variantSelect.value;
+     const progressBarDialog = createProgressBarDialog();
+     const progress = document.getElementById("progress"); 
 
     let selectedFiles;
 
@@ -398,20 +398,7 @@ async function clickProgram() {
 			: (selectedVariant === "Marauder" ? MKitpreviousFiles : "NULL");
 	}
 
-    function checkDropdowns() {
-        const isAnyDropdownNull = [selectedModel, selectedVersion, selectedVariant].includes("NULL");
-        const isBoardNotS2 = selectedModel !== "S2";
-        const isBlackMagicSelected = selectedVariant === "BlackMagic";
-
-        if (isAnyDropdownNull || (isBoardNotS2 && isBlackMagicSelected)) {
-            
-            butProgram.disabled = true;
-        } else {
-            butProgram.disabled = false;
-        }
-    }
-
-    checkDropdowns();
+   
     const flashMessages = document.getElementById("flashMessages");
     
     butErase.disabled = true;
