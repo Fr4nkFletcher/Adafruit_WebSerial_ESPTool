@@ -6,11 +6,14 @@ Adafruit WebSerial tools fork for flashing ESP32Marauder to the Cheap Yellow Dis
   <img src="https://github.com/Fr4nkFletcher/Adafruit_WebSerial_ESPTool/blob/main/assets/sc4.png" alt="Demo 1">
 </p>
 
-## Local development
+## Local Development
 
-- Clone this repository.
-- Install dependencies with `npm`
-- Run `script/develop`
+```
+git clone https://github.com/Fr4nkFletcher/Adafruit_WebSerial_ESPTool
+cd Adafruit_WebSerial_ESPTool
+npm install
+./script/develop
+```
 - Open http://localhost:5004/
 
 ## Origin
