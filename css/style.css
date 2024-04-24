@@ -52,7 +52,7 @@ button,
 /* Active State for Buttons */
 .header button:active,
 .firmware:active {
-  background-color: #ff5555; /* A vibrant red for active state */
+  background-color: #FF9999; /* A vibrant red for active state */
   color: #f8f8f2;
   border-color: #bd93f9; /* Purple, provides a good contrast with the red */
 }
@@ -230,7 +230,7 @@ div.clear {
 }
 
 .footer #butClear:active {
-  background-color: #ff5555;  // Vibrant red
+  background-color: #FF9999;  // Vibrant red
   color: #6272a4;
   border-color: #bd93f9;  // Purple
 }
@@ -271,7 +271,7 @@ div.clear {
   overflow: hidden;
   cursor: pointer;
   border: 1px solid #900;
-  border-radius: 15px;
+  border-radius: 12px;
   transition: border 0.3s ease-in 0s;
 }
 
@@ -300,9 +300,10 @@ div.clear {
 
 .onoffswitch-inner:before {
   content: "on";
-  padding-left: 6px;
+  padding-left: 8px;
   background-color: #8ec641;
   color: #fff;
+  text-align: left;
 }
 
 .onoffswitch-inner:after {
@@ -321,7 +322,7 @@ div.clear {
   position: absolute;
   top: 0;
   bottom: 0;
-  right: 23px;
+  right: 27px;
   border: 1px solid #900;
   border-radius: 15px;
   transition: all 0.3s ease-in 0s;
