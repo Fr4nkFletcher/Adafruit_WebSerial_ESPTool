@@ -64,7 +64,26 @@
         </div>
         
     </div>
-<div id="terminalOutput" class="terminal-output"></div>
+<div id="terminalOutput" class="terminal-output" style="overflow-y: auto; height: 500px;">
+  <!-- Make sure this container has enough content to scroll -->
+</div>
+
+<style>
+/* Inline CSS to directly test scrollbar styling */
+#terminalOutput::-webkit-scrollbar {
+    width: 12px;
+}
+
+#terminalOutput::-webkit-scrollbar-track {
+    background: #888;
+}
+
+#terminalOutput::-webkit-scrollbar-thumb {
+    background-color: #555;
+    border-radius: 6px;
+}
+</style>
+
         
  <footer class="footer">
   <div class="controls">

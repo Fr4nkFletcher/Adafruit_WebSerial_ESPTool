@@ -135,39 +135,39 @@ input {
   display: flex;
   background-color: #252525;
   color: #cecece;
-  height: calc(100vh - 130px); /* Where 150px accounts for header/footer */
+  height: calc(100vh - 160px); /* Where 150px accounts for header/footer */
   border: 0px solid #111111;
   padding: 5px;
-  overflow-y: auto;
+  overflow-y: scroll;
   overflow-x: auto;
   margin-top: 90px;
-  margin-bottom: 65px;
+  margin-bottom: 15px;
   white-space: pre;
   word-wrap: break-word;
   overflow-wrap: break-word; 
 }
 
-/* This will style the scrollbar track */
-.terminal-output::-webkit-scrollbar-track {
-  background: #2e2e2e; /* Track color */
-  border-radius: 10px;
-}
-
-/* This will style the actual scrollbar handle */
-.terminal-output::-webkit-scrollbar-thumb {
-  background: #555; /* Handle color */
-  border-radius: 10px;
-}
-
-/* This styles the scrollbar itself (optional) */
+/* Enhance scrollbar visibility for WebKit browsers */
 .terminal-output::-webkit-scrollbar {
-  width: 8px; /* Width of the scrollbar */
+    width: 10px;  /* increase width for better visibility */
 }
 
-/* This will apply a hover effect for the scrollbar handle */
-.terminal-output::-webkit-scrollbar-thumb:hover {
-  background: #666; /* Handle hover color */
+.terminal-output::-webkit-scrollbar-track {
+    background: #2e2e2e;  /* ensuring it's different enough from the thumb */
 }
+
+.terminal-output::-webkit-scrollbar-thumb {
+    background-color: #666;  /* slightly lighter to stand out against the track */
+    border-radius: 5px;  /* less rounded corners */
+    border: none;  /* removing border for a cleaner look */
+}
+
+/* Ensure scrollbar appears in Firefox */
+.terminal-output {
+    scrollbar-width: thin;  /* "auto" or "thin" */
+    scrollbar-color: #666 #2e2e2e;  /* thumb and track color */
+}
+
 
 
 
