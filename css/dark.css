@@ -147,6 +147,28 @@ input {
   overflow-wrap: break-word; 
 }
 
+/* This will style the scrollbar track */
+.terminal-output::-webkit-scrollbar-track {
+  background: #2e2e2e; /* Track color */
+  border-radius: 10px;
+}
+
+/* This will style the actual scrollbar handle */
+.terminal-output::-webkit-scrollbar-thumb {
+  background: #555; /* Handle color */
+  border-radius: 10px;
+}
+
+/* This styles the scrollbar itself (optional) */
+.terminal-output::-webkit-scrollbar {
+  width: 8px; /* Width of the scrollbar */
+}
+
+/* This will apply a hover effect for the scrollbar handle */
+.terminal-output::-webkit-scrollbar-thumb:hover {
+  background: #666; /* Handle hover color */
+}
+
 
 
 .terminal-input-row {
