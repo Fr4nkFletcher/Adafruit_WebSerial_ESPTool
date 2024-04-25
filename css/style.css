@@ -272,25 +272,21 @@ div.clear {
   display: none;
 }
 /* Style scrollbars for Chrome, Edge, and Safari */
-.terminal-output::-webkit-scrollbar,
-#log::-webkit-scrollbar {
+.terminal-output::-webkit-scrollbar {
     width: 10px;  /* Make scrollbar thicker for better visibility */
 }
 
-.terminal-output::-webkit-scrollbar-track,
-#log::-webkit-scrollbar-track {
+.terminal-output::-webkit-scrollbar-track {
     background: #333;  /* Dark track background */
 }
 
-.terminal-output::-webkit-scrollbar-thumb,
-#log::-webkit-scrollbar-thumb {
+.terminal-output::-webkit-scrollbar-thumb {
     background-color: #bbb;  /* Lighter thumb for contrast */
     border-radius: 5px;
 }
 
 /* Style scrollbars for Firefox */
-.terminal-output,
-#log {
+.terminal-output {
     scrollbar-width: thin;  /* Make scrollbar 'thin' */
     scrollbar-color: #bbb #333;  /* Thumb and track colors */
 }
