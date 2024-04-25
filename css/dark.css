@@ -133,7 +133,7 @@ input {
 .terminal-output {
   flex-grow: 1;
   display: flex;
-  background-color: #252525;
+  background-color: #000;
   color: #cecece;
   height: calc(100vh - 160px); /* Where 150px accounts for header/footer */
   border: 0px solid #111111;
