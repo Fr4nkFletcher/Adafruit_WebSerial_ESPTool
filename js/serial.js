@@ -81,18 +81,22 @@ document.addEventListener('DOMContentLoaded', () => {
         readLoopExitSignalResolver();
     }
 
-    function displayData(data) {
-        const filteredData = data.replace(/\u0007/g, '');
+function displayData(data) {
+    const filteredData = data.replace(/\u0007/g, '');
     
-        let outputContainer = document.querySelector('.terminal-output');
-        let pre = outputContainer.querySelector('pre');
-        if (!pre) {
-            pre = document.createElement('pre');
-            outputContainer.appendChild(pre);
-        }
-        pre.textContent += filteredData;
-        outputContainer.scrollBottom = outputContainer.scrollHeight;
+    let outputContainer = document.getElementById('terminalOutput');
+    let pre = outputContainer.querySelector('pre');
+    if (!pre) {
+        pre = document.createElement('pre');
+        outputContainer.appendChild(pre);
     }
+    pre.textContent += filteredData;
+
+    // Ensure the browser acknowledges the change by using setTimeout
+    setTimeout(() => {
+        outputContainer.scrollTop = pre.scrollHeight;
+    }, 0);
+}
 
     async function send(data = '') {
         if (!port || !port.writable) {
