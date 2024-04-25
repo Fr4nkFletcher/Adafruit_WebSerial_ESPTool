@@ -12,7 +12,10 @@ const butConnect = document.getElementById("butConnect");
 const butClear = document.getElementById("butClear");
 const butErase = document.getElementById("butErase");
 const butProgram = document.getElementById("butProgram");
+const autoscroll = document.getElementById("autoscroll");
 const lightSS = document.getElementById("light");
+const darkSS = document.getElementById("dark");
+const darkMode = document.getElementById("darkmode");
 const modelSelect = document.getElementById("modelSelect");
 //const versionSelect = document.getElementById("versionSelect");
 //const variantSelect = document.getElementById("variantSelect");
@@ -20,6 +23,8 @@ const offsets = [0x1000, 0x8000, 0xE000, 0x10000];
 const offsets2 = [0x0, 0x8000, 0xE000, 0x10000];
 
 const appDiv = document.getElementById("app");
+
+
 
 document.addEventListener("DOMContentLoaded", () => {
     butConnect.addEventListener("click", () => {
@@ -36,6 +41,8 @@ document.addEventListener("DOMContentLoaded", () => {
     butErase.addEventListener("click", clickErase);
     butProgram.addEventListener("click", clickProgram);
     butClear.addEventListener("click", clickClear);
+    autoscroll.addEventListener("click", clickAutoscroll);
+    darkMode.addEventListener("click", clickDarkMode);
     window.addEventListener("error", function (event) {
         console.log("Got an uncaught error: ", event.error);
     });
@@ -187,6 +194,25 @@ function formatMacAddr(macAddr) {
         .join(":");
 }
 
+function updateTheme() {
+  // Disable all themes
+  document
+    .querySelectorAll("link[rel=stylesheet].alternate")
+    .forEach((styleSheet) => {
+      enableStyleSheet(styleSheet, false);
+    });
+
+  if (darkMode.checked) {
+    enableStyleSheet(darkSS, true);
+  } else {
+    enableStyleSheet(lightSS, true);
+  }
+}
+
+async function clickAutoscroll() {
+  saveSetting("autoscroll", autoscroll.checked);
+}
+
 async function clickConnect() {
     if (espStub) {
         await espStub.disconnect();
@@ -290,6 +316,13 @@ function createProgressBarDialog() {
     document.body.appendChild(progressBarDialog);
     return progressBarDialog;
 }
+
+
+async function clickDarkMode() {
+  updateTheme();
+  saveSetting("darkmode", darkMode.checked);
+}
+
 
 async function clickErase() {
     initMsg(` `);

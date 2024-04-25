@@ -26,7 +26,22 @@
     <!-- import the web page's stylesheets along with the themes -->
     <link rel="stylesheet" href="https://use.typekit.net/qtk5kiq.css" />
     <link rel="stylesheet" href="css/style.css" />
-    <link rel="stylesheet" href="css/dark.css" id="dark">
+    <link
+      rel="stylesheet"
+      href="css/light.css"
+      id="light"
+      class="alternate"
+      disabled
+    />
+    <link
+      rel="stylesheet"
+      href="css/dark.css"
+      id="dark"
+      class="alternate"
+      disabled
+    />
+
+
 
     <!-- import the webpage's javascript file -->
     <script module>
@@ -54,6 +69,21 @@
       <div class="subheader">
         <div class="title left">ESP32Marauder CYD Installer</div>
         <div class="right">
+          <label for="darkmode"> Dark Mode </label>
+          <div class="onoffswitch">
+            <input
+              type="checkbox"
+              name="darkmode"
+              class="onoffswitch-checkbox"
+              id="darkmode"
+              checked
+            />
+            <label class="onoffswitch-label" for="darkmode">
+              <span class="onoffswitch-inner"></span>
+              <span class="onoffswitch-switch"></span>
+            </label>
+          </div>
+        </div>
         
           </div>
         </div>
@@ -76,17 +106,7 @@
           </optgroup>
 
                 </select>
-                <!-- <select id="versionSelect" class="dropdown">
-                  <option value="NULL" disabled selected style="display:none;"><b>--- VERSION ---</b></option>
-                  <optgroup label="--- VERSION ---"></optgroup>
-                 <option value="latest">Latest 0.13.9</option>
-              </select>
-              <select id="variantSelect" class="dropdown">
-                <option value="NULL" disabled selected style="display:none;"><b>--- FIRMWARE ---</b></option>
-                <optgroup label="--- FIRMWARE ---"></optgroup>
-                 <option value="Marauder">Marauder</option>
-                 
-              </select> -->
+    
               </div>
             </label>
             <br><br>

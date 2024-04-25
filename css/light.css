@@ -8,6 +8,13 @@ body {
   color: #000;
 }
 
+.main {
+  overflow-x: hidden;
+  overflow-y: auto;
+  padding-top: 80px;
+  background-color: #fff;
+}
+
 input, select, button {
   background-color: #fff;
   color: #000;
@@ -27,6 +34,20 @@ input, select, button {
 .footer button:hover {
   background-color: #63338f;
   color: #fff;
+}
+
+.footer {
+    display: flex;
+    justify-content: space-between;  /* Maintains space between the three main divs */
+    align-items: center;  /* Aligns items vertically in the center */
+    padding: 20px 70px;  /* Add padding on the sides of the footer */
+    position: fixed;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    height: 35px;
+    background-color: #fff;
+    color: #000;
 }
 
 .remix button {

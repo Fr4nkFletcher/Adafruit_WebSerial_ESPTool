@@ -1,5 +1,6 @@
 TODO
 ----
-- Button colors
-- Autoscroll auto-default
-- Flashing... div more info
+X Button colors
+X Autoscroll auto-default
+X Flashing... div more info
+X Remove version and firmware
