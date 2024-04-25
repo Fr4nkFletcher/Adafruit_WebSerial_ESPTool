@@ -101,8 +101,11 @@ input {
   color: #cecece;
   font-family: 'proxima-nova', sans-serif;
   padding: 15px;
+  padding-top: 10px;
   box-sizing: border-box;
 }
+
+
 
 .connection-controls {
   display: flex;
@@ -129,17 +132,21 @@ input {
 
 .terminal-output {
   flex-grow: 1;
+  display: flex;
   background-color: #252525;
   color: #cecece;
-  border: 1px solid #111111;
-  padding: 10px;
+  border: 0px solid #111111;
+  padding: 5px;
   overflow-y: auto;
   overflow-x: auto;
+  margin-top: 60px;
   margin-bottom: 10px;
   white-space: pre;
   word-wrap: break-word;
   overflow-wrap: break-word; 
 }
+
+
 
 .terminal-input-row {
   display: flex;
@@ -158,4 +165,5 @@ input {
 
 .dropdown-container {
     margin-bottom: 5px; 
+    margin-right: 10px;
 }

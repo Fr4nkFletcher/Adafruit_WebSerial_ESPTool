@@ -209,6 +209,32 @@ div.clear {
   margin: 0 10px;
 }
 
+.footer #butSend {
+  height: 25px;
+  font-size: 16px;
+  border-radius: 15px;
+  padding-left: 20px;
+  padding-right: 20px;
+  border-width: 3px;
+  border-color: #6272a4;  // Light pinkish-purple
+  background-color: #44475a;  // Soft dark grey
+  color: #f8f8f2;  // Off-white text
+  transition: background-color 0.3s, color 0.3s, border-color 0.3s;
+  outline: none;
+}
+
+.footer #butSend:hover {
+  background-color: #282a36;  // Moderate blue
+  color: #6272a4;
+  border-color: #bd93f9;  // Vibrant purple
+}
+
+.footer #butSend:active {
+  background-color: #FF9999;  // Vibrant red
+  color: #6272a4;
+  border-color: #bd93f9;  // Purple
+}
+
 .footer #butClear {
   height: 25px;
   font-size: 16px;
@@ -225,7 +251,7 @@ div.clear {
 
 .footer #butClear:hover {
   background-color: #282a36;  // Moderate blue
-  color: #ffffff;
+  color: #6272a4;
   border-color: #bd93f9;  // Vibrant purple
 }
 
