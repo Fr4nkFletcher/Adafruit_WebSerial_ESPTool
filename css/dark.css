@@ -130,6 +130,10 @@ input {
   align-items: center;
 }
 
+a {
+        color: #03a9f4;
+      }
+
 .terminal-output {
   flex-grow: 1;
   display: flex;
