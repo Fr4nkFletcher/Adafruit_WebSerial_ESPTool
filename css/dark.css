@@ -19,6 +19,12 @@ input, select, button {
   color: #fff;
 }
 
+/* Footer specific styling */
+.footer button#butClear {
+  font-size: 16px; /* Slightly larger text for footer button */
+  padding: 8px 16px; /* Slightly less padding for footer button */
+}
+
 .footer button:hover {
   background-color: #fff;
   color: #333;

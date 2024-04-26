@@ -1,4 +1,5 @@
 
+
 .header {
   box-sizing: border-box;
   display: flex;
@@ -23,36 +24,64 @@
 
 
 
-button,
-.firmware {
-  height: 25px;
-  font-size: 16px;
-  border-radius: 15px;
-  padding-left: 20px;
-  padding-right: 20px;
-  border-width: 3px;
-  margin-right: 20px;
-  border-color: #6272a4; /* Light pinkish-purple, typical for the Dracula theme */
-  background-color: #44475a; /* A soft dark grey */
+/* Common button styling */
+button {
+  font-size: 14px;
+  font-weight: 600;
+  padding: 10px 20px;
+  margin: 0 10px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  outline: none;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+}
+
+/* Specific button styling */
+.header button#butConnect,
+.header button#butSerialTerminal,
+.footer button#butClear {
+  background-color: #44475a; /* Soft dark grey */
   color: #f8f8f2; /* Off-white text */
-  transition: background-color 0.3s, color 0.3s, border-color 0.3s; /* Smooth transition for hover effects */
-  outline: none; /* Removes the outline to clean up the appearance */
+  border: 2px solid transparent; /* Prepare for hover effect */
 }
 
 /* Hover State for Buttons */
-.header button:hover,
-.firmware:hover {
-  background-color: #282a36; /* A moderate blue, gives a gentle contrast */
-  color: #6272a4; /* Dark background color */
-  border-color: #bd93f9; /* Vibrant green for a noticeable hover effect */
+.header button#butConnect:hover,
+.header button#butSerialTerminal:hover,
+.footer button#butClear:hover {
+  background-color: #6272a4; /* Light pinkish-purple */
+  border: 2px solid #f8f8f2; /* Brighter border color on hover */
+  color: #f8f8f2;
 }
 
 /* Active State for Buttons */
-.header button:active,
-.firmware:active {
-  background-color: #FF9999; /* A vibrant red for active state */
-  color: #f8f8f2;
-  border-color: #bd93f9; /* Purple, provides a good contrast with the red */
+.header button#butConnect:active,
+.header button#butSerialTerminal:active,
+.footer button#butClear:active {
+  background-color: #bd93f9; /* Vibrant purple */
+  color: #282a36; /* Dark background color */
+}
+
+/* Disabled State for Buttons */
+button:disabled {
+  background-color: #6272a4;
+  color: #999;
+  cursor: not-allowed;
+}
+
+/* Adding a glow effect on focus for accessibility */
+button:focus {
+  box-shadow: 0 0 10px #bd93f9;
+}
+
+/* Styling for small screens */
+@media (max-width: 768px) {
+  button {
+    font-size: 12px;
+    padding: 8px 16px;
+  }
 }
 
 body {
@@ -199,62 +228,69 @@ div.clear {
     text-align: center;  // Centers the content text-wise
 }
 
+/* Generic Footer Button Styling */
 .footer button {
   font-size: 14px;
+  padding: 10px 20px; /* Consistent padding */
   margin: 0 10px;
+  border-radius: 4px; /* Slightly reduced for modern aesthetics */
+  border: 2px solid transparent; /* Prepare for hover effect */
+  background-color: #44475a; /* Soft dark grey */
+  color: #f8f8f2; /* Off-white text */
+  transition: background-color 0.3s, color 0.3s, border-color 0.3s; /* Smooth transition for hover effects */
+  outline: none; /* Removes the outline to clean up the appearance */
+  cursor: pointer; /* Changes cursor to signify clickable button */
+  box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2); /* Subtle shadow for depth */
 }
 
-.footer #butSend {
-  height: 25px;
-  font-size: 16px;
-  border-radius: 15px;
-  padding-left: 20px;
-  padding-right: 20px;
-  border-width: 3px;
-  border-color: #6272a4;  // Light pinkish-purple
-  background-color: #44475a;  // Soft dark grey
-  color: #f8f8f2;  // Off-white text
-  transition: background-color 0.3s, color 0.3s, border-color 0.3s;
-  outline: none;
+/* Hover State for Footer Buttons */
+.footer button:hover {
+  background-color: #6272a4; /* Light pinkish-purple */
+  color: #f8f8f2; /* Maintain off-white text for readability */
+  border-color: #bd93f9; /* Vibrant purple border appears on hover */
 }
 
-.footer #butSend:hover {
-  background-color: #282a36;  // Moderate blue
-  color: #6272a4;
-  border-color: #bd93f9;  // Vibrant purple
+/* Active State for Footer Buttons */
+.footer button:active {
+  background-color: #FF5555; /* A vibrant, dark red for active state */
+  color: #f8f8f2; /* Maintain off-white text for visibility */
+  border-color: #ff79c6; /* Soft pink border for contrast */
 }
 
-.footer #butSend:active {
-  background-color: #FF9999;  // Vibrant red
-  color: #6272a4;
-  border-color: #bd93f9;  // Purple
+/* Disabled State for Footer Buttons */
+.footer button:disabled {
+  background-color: #6272a4; /* Muted background for disabled state */
+  color: #999999; /* Grayed out text indicates non-interactive */
+  cursor: not-allowed; /* Cursor indicates button is not clickable */
+  border-color: transparent; /* No border for disabled state */
 }
 
-.footer #butClear {
-  height: 25px;
-  font-size: 16px;
-  border-radius: 15px;
-  padding-left: 20px;
-  padding-right: 20px;
-  border-width: 3px;
-  border-color: #6272a4;  // Light pinkish-purple
-  background-color: #44475a;  // Soft dark grey
-  color: #f8f8f2;  // Off-white text
-  transition: background-color 0.3s, color 0.3s, border-color 0.3s;
-  outline: none;
+/* Clear Text Button Specific Styling */
+.footer button#butClear {
+  /* Height removed to allow padding to define size */
+  font-size: 16px; /* Larger font size for emphasis */
+  border-radius: 15px; /* More rounded edges for stylistic preference */
 }
 
-.footer #butClear:hover {
-  background-color: #282a36;  // Moderate blue
-  color: #6272a4;
-  border-color: #bd93f9;  // Vibrant purple
+/* Send Button Specific Styling - assuming #butSend is another button you might add */
+.footer button#butSend {
+  font-size: 16px; /* Same larger font size as butClear for consistency */
+  border-radius: 15px; /* Same rounded edges as butClear */
 }
 
-.footer #butClear:active {
-  background-color: #FF9999;  // Vibrant red
-  color: #6272a4;
-  border-color: #bd93f9;  // Purple
+/* Adding a glow effect on focus for accessibility */
+.footer button:focus {
+  box-shadow: 0 0 8px #bd93f9;
 }
+
+/* Styling for small screens to ensure usability */
+@media (max-width: 768px) {
+  .footer button {
+    font-size: 12px; /* Smaller font size for small screens */
+    padding: 8px 15px; /* Adjusted padding for smaller screens */
+  }
+}
+
 
 .remix {
   display: flex;
