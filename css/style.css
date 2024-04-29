@@ -137,7 +137,7 @@ div.clear {
   overflow-x: hidden;
   overflow-y: auto;
   padding-top: 80px;
-  background-color: #282a36;
+  background-color: #282b40;
 }
 
 .hidden {
@@ -221,7 +221,7 @@ div.clear {
     right: 0;
     bottom: 0;
     height: 35px;
-    background-color: #282a36;
+    background-color: #282b40;
     color: #ffffff;
 }
 
