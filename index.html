@@ -5,7 +5,6 @@
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width" />
-    <meta name="color-scheme" content="dark light" />
     <link rel="apple-touch-icon" sizes="120x120" href="https://fr4nkfletcher.github.io/ESP32-Marauder-Cheap-Yellow-Display/fav/apple-touch-icon.png">
     <link rel="icon" type="image/png" sizes="32x32" href="https://fr4nkfletcher.github.io/ESP32-Marauder-Cheap-Yellow-Display/fav/favicon-32x32.png">
     <link rel="icon" type="image/png" sizes="16x16" href="https://fr4nkfletcher.github.io/ESP32-Marauder-Cheap-Yellow-Display/fav/favicon-16x16.png">
@@ -28,7 +27,7 @@
       }
     </style>
     <!-- import the web page's stylesheets along with the themes -->
-    <link rel="stylesheet" href="https://use.typekit.net/qtk5kiq.css" />
+  <link rel="stylesheet" href="https://use.typekit.net/qtk5kiq.css" />
     <link rel="stylesheet" href="css/style.css" />
     <link
       rel="stylesheet"
@@ -69,8 +68,10 @@
         <button id="butSerialTerminal" type="button" onclick="window.location='https://fr4nkfletcher.github.io/Adafruit_WebSerial_ESPTool/serial_terminal.html';">Serial Terminal</button><p class="top-text">
         <font face="Tahoma, Verdana, Arial" color="white" size="2">Current Version: &nbsp;</font></p> <p class="top-text">
         <font face="Tahoma, Verdana, Arial" color="#fc9999" size="2"><b>v0.13.10</b></font></p>
+
       </div>
-    </header>
+      </header>
+     
     <main class="main">
       <div class="subheader">
         <div class="title left">ESP32Marauder CYD Installer</div>
@@ -149,9 +150,23 @@
   </div>
   <div class="controls">
     <button id="butClear" class="footer-button" type="button">Clear Text</button>
+
   </div>
 </footer>
     </div>
     </footer>
-  </body>
+<script src='https://storage.ko-fi.com/cdn/scripts/overlay-widget.js'></script>
+ <script>
+  kofiWidgetOverlay.draw('fr4nkfletcher', {
+    'type': 'floating-chat',
+    'floating-chat.donateButton.text': 'Support me',
+    'floating-chat.donateButton.background-color': '#282a36',
+    'floating-chat.donateButton.text-color': '#ff9999'
+  });
+ </script>
+ <style>
+.floatingchat-container-wrap { left:unset; bottom:unset; right:52px; top: 3px; }
+.floating-chat-kofi-popup-iframe { left:unset; bottom:unset; right:16px; top: 16px; }
+</style>
+</body>
 </html>

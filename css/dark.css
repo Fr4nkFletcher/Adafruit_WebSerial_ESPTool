@@ -8,6 +8,9 @@ body {
   color: #fff;
 }
 
+
+}
+
 input, select, button {
   background-color: #333;
   color: #fff;
@@ -93,7 +96,7 @@ input {
 }
 
 .progress-bar {
-  border-color: #fff;
+  border-color: #ff9999;
 }
 .terminal {
   position: absolute;

@@ -20,6 +20,14 @@ input, select, button {
   color: #000;
 }
 
+.subheader {
+  height: 75px;
+  line-height: 75px;
+  padding-left: 70px;
+  padding-right: 70px;
+  color: black;
+}
+
 .notSupported, .notSupported a {
   background-color: red;
   color: white;
