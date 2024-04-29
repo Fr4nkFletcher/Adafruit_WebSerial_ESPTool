@@ -101,7 +101,7 @@
             <label class="firmware">
               <div class="model-select">
                 <label for="modelSelect">Select Model:</label>
-                <select id="modelSelect" class="dropdown">
+                <select id="modelSelect" class="dropdown"style="background-color: #333; color: white;">
                   <option value="NULL" disabled selected style="display:none;"><b>--- SELECT BOARD ---</b></option>
                   <optgroup label="--- SELECT BOARD ---">
           <optgroup label="+ ESP32-2432S028R Cheap-Yellow-Display">
@@ -115,6 +115,16 @@
                 </select>
     
               </div>
+<style>
+    /* Hides scrollbar for any element with class .no-scrollbar */
+    #commands::-webkit-scrollbar {
+        display: none; /* for Webkit browsers */
+    }
+
+    #commands {
+        overflow-y: auto; /* This allows vertical scrolling to remain functional */
+    }
+</style>
             </label>
             <br><br>
           </div> 
