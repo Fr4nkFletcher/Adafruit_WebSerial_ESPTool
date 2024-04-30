@@ -151,8 +151,8 @@ div.clear {
 }
 
 .subheader {
-  height: 75px;
-  line-height: 75px;
+  height: 46px;
+  line-height: 46px;
   padding-left: 70px;
   padding-right: 70px;
   color: white;
@@ -168,7 +168,7 @@ div.clear {
 }
 
 #app.connected #log {
-  height: calc(100vh - 330px);
+  height: calc(100vh - 300px);
 }
 
 #app #commands {
@@ -176,7 +176,7 @@ div.clear {
 }
 
 #app #log {
-  height: calc(100vh - 270px);
+  height: calc(100vh - 240px);
 }
 
 #commands,
