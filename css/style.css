@@ -323,25 +323,6 @@ div.clear {
 #templates {
   display: none;
 }
-/* Style scrollbars for Chrome, Edge, and Safari */
-.terminal-output::-webkit-scrollbar {
-    width: 10px;  /* Make scrollbar thicker for better visibility */
-}
-
-.terminal-output::-webkit-scrollbar-track {
-    background: #333;  /* Dark track background */
-}
-
-.terminal-output::-webkit-scrollbar-thumb {
-    background-color: #bbb;  /* Lighter thumb for contrast */
-    border-radius: 5px;
-}
-
-/* Style scrollbars for Firefox */
-.terminal-output {
-    scrollbar-width: thin;  /* Make scrollbar 'thin' */
-    scrollbar-color: #bbb #333;  /* Thumb and track colors */
-}
 
 /* On/Off Switch Widget */
 .onoffswitch {

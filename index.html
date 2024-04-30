@@ -21,11 +21,31 @@
         window.location.href = "https:" + window.location.href.substring(5);
       }
     </script>
-    <style>
-      a:link {
-        color: red;
-      }
-    </style>
+<style>
+    #terminalOutput {
+        max-width: 100%;
+        font-family: pt-mono, monospace;
+        font-style: normal;
+        font-weight: 400;
+        font-size: 16px;
+        overflow: hidden; /* Hide all scrollbars */
+        transition: color 0.1s linear;
+        padding: 0 50px;
+        border: 20px solid #000;
+        background-color: #000;
+        color: #cecece;
+
+        /* Ensure scrollbars are hidden across all browsers */
+        -ms-overflow-style: none; /* IE and Edge */
+        scrollbar-width: none; /* Firefox */
+
+        /* Hide scrollbars on WebKit browsers */
+        ::-webkit-scrollbar {
+            display: none;
+        }
+    }
+</style>
+
     <!-- import the web page's stylesheets along with the themes -->
   <link rel="stylesheet" href="https://use.typekit.net/qtk5kiq.css" />
     <link rel="stylesheet" href="css/style.css" />
@@ -100,7 +120,7 @@
           <div class="upload">
             <label class="firmware">
               <div class="model-select">
-                <label for="modelSelect">Select Model:</label>
+                <label for="modelSelect" Select Model:</label>
                 <select id="modelSelect" class="dropdown"style="background-color: #333; color: white;">
                   <option value="NULL" disabled selected style="display:none;"><b>--- SELECT BOARD ---</b></option>
                   <optgroup label="--- SELECT BOARD ---">
@@ -115,16 +135,7 @@
                 </select>
     
               </div>
-<style>
-    /* Hides scrollbar for any element with class .no-scrollbar */
-    #commands::-webkit-scrollbar {
-        display: none; /* for Webkit browsers */
-    }
 
-    #commands {
-        overflow-y: auto; /* This allows vertical scrolling to remain functional */
-    }
-</style>
             </label>
             <br><br>
           </div> 

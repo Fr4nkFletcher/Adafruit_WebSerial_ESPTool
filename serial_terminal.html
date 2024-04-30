@@ -25,7 +25,7 @@
                 <img src="assets/logo1.png"><p class="top-text"></p> 
                 <div class="dropdown-container">
                     <label class="baud-rate-label" for="baudRate"></label>
-                    <select id="baudRate" class="dropdown">
+                    <select id="baudRate" class="dropdown" style="background-color: #333; color: white;">>
                     <option value="2400">2400</option>
                     <option value="4800">4800</option>
                     <option value="9600">9600</option>
@@ -40,7 +40,7 @@
             </div>
             <div class="dropdown-container">
                 <label for="endOfLine"></label>
-                <select id="endOfLine" class="dropdown">
+                <select id="endOfLine" class="dropdown" style="background-color: #333; color: white;">>
                 <option value="none">None</option>
                 <option value="cr">Carriage Return (\r)</option>
                 <option value="lf">Line Feed (\n)</option>
@@ -64,24 +64,20 @@
         </div>
         
     </div>
-<div id="terminalOutput" class="terminal-output">
+<div id="terminalOutput" class="terminal-output" style="max-width: 100%">
   <!-- Make sure this container has enough content to scroll -->
 </div>
-
 <style>
-/* Inline CSS to directly test scrollbar styling */
-#terminalOutput::-webkit-scrollbar {
-    width: 12px;
-}
+    /* Hides scrollbar for #terminalOutput */
+    #terminalOutput::-webkit-scrollbar {
+        display: none; /* for WebKit browsers like Chrome, Safari */
+    }
 
-#terminalOutput::-webkit-scrollbar-track {
-    background: #888;
-}
-
-#terminalOutput::-webkit-scrollbar-thumb {
-    background-color: #555;
-    border-radius: 6px;
-}
+    #terminalOutput {
+        overflow-y: auto; /* Allows vertical scrolling to remain functional but without visible scrollbar */
+        -ms-overflow-style: none; /* IE and Edge */
+        scrollbar-width: none; /* Firefox */
+    }
 </style>
 
         
