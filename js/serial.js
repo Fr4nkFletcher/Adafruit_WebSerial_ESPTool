@@ -6,6 +6,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const sendButton = document.getElementById('butSend');
     const inputField = document.getElementById('terminalInput');
     const statusDisplay = document.createElement('div');
+    // statusDisplay.style.backgroundColor = '#333';
     const textDecoder = new TextDecoder();
     const textEncoder = new TextEncoder(); 
     terminalContainer.appendChild(statusDisplay);
