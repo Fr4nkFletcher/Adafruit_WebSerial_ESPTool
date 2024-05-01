@@ -548,13 +548,16 @@ function toggleUIToolbar(show) {
 }
 
 function toggleUIConnected(connected) {
-    let lbl = "Connect";
+    let label = "Connect";
+    let iconClass = "fas fa-plug"; // Icon for Connect
     if (connected) {
-        lbl = "Disconnect";
+        label = "Disconnect";
+        iconClass = "far fa-window-close"; // Change this to your preferred icon for Disconnect
     } else {
         toggleUIToolbar(false);
     }
-    butConnect.textContent = lbl;
+    // Update the button label and icon
+    document.getElementById('butConnect').innerHTML = `<i class="${iconClass}"></i> ${label}`;
 }
 
 function loadSetting(setting, defaultValue) {

@@ -28,8 +28,9 @@
     </style>
     <!-- import the web page's stylesheets along with the themes -->
   <link rel="stylesheet" href="https://use.typekit.net/qtk5kiq.css" />
-    <link rel="stylesheet" href="css/style.css" />
-    <link
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.12.1/css/all.css" crossorigin="anonymous">
+  <link rel="stylesheet" href="css/style.css" />
+   <link
       rel="stylesheet"
       href="css/light.css"
       id="light"
@@ -64,35 +65,30 @@
         <img src="assets/logo0.png" class="Adafruit-Logo">
       </div>
       <div class="right">
-        <button id="butConnect" type="button">Connect</button>
-        <button id="butSerialTerminal" type="button" onclick="window.location='https://fr4nkfletcher.github.io/Adafruit_WebSerial_ESPTool/serial_terminal.html';">Serial Terminal</button><p class="top-text">
+        <p class="top-text">
         <font face="Tahoma, Verdana, Arial" color="white" size="2">Current Version: &nbsp;</font></p> <p class="top-text">
         <font face="Tahoma, Verdana, Arial" color="#fc9999" size="2"><b>v0.13.10</b></font></p>
 
       </div>
+
       </header>
      
-    <main class="main">
-      <div class="subheader">
-        <div class="title left">ESP32Marauder CYD Installer</div>
-        <div class="right">
-          <label for="darkmode"> Dark Mode </label>
-          <div class="onoffswitch">
-            <input
-              type="checkbox"
-              name="darkmode"
-              class="onoffswitch-checkbox"
-              id="darkmode"
-              checked
-            />
-            <label class="onoffswitch-label" for="darkmode">
-              <span class="onoffswitch-inner"></span>
-              <span class="onoffswitch-switch"></span>
-            </label>
-          </div>
-        </div>
-        
-          </div>
+<main class="main">
+  <div class="subheader">
+    &nbsp;&nbsp;<a id="butConnect"><i class="fas fa-plug"></i> Connect</a>&nbsp;
+    <a id="butSerialTerminal" href="https://fr4nkfletcher.github.io/Adafruit_WebSerial_ESPTool/serial_terminal.html"><i class="fas fa-keyboard"></i> Serial Terminal</a>
+    <div class="right">
+   
+    <label for="darkmode"> Dark Mode </label>
+    <div class="onoffswitch">
+      <input type="checkbox" name="darkmode" class="onoffswitch-checkbox" id="darkmode" checked />
+      <label class="onoffswitch-label" for="darkmode">
+        <span class="onoffswitch-inner"></span>
+        <span class="onoffswitch-switch"></span>
+      </label>
+    </div>
+  </div>
+</div>
         </div>
       </div>
  <div id="app">
@@ -100,7 +96,7 @@
           <div class="upload">
             <label class="firmware">
               <div class="model-select">
-                <label for="modelSelect" Select Model:</label>
+                
                 <select id="modelSelect" class="dropdown"style="background-color: #333; color: white;">
                   <option value="NULL" disabled selected style="display:none;"><b>--- SELECT BOARD ---</b></option>
                   <optgroup label="--- SELECT BOARD ---">
@@ -138,7 +134,9 @@
           </div>
         </div>
         <div id="flashMessages" class="flashMessages"></div>
+        
         <div id="log"></div>
+
       </div>
     </main>
     <footer class="footer">
@@ -175,8 +173,8 @@
   });
  </script>
  <style>
-.floatingchat-container-wrap { left:unset; bottom:unset; right:35px; top: 6px; }
-.floating-chat-kofi-popup-iframe { left:unset; bottom:unset; right:16px; top: 16px; }
+.floatingchat-container-wrap { left:unset; bottom:unset; right:35px; top: 4px; }
+.floating-chat-kofi-popup-iframe { left:unset; bottom:unset; right:16px; top: 83px; }
 </style>
 </body>
 </html>
