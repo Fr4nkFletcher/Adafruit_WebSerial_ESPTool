@@ -5,4 +5,4 @@ X Autoscroll auto-default
 X Flashing... div more info
 X Remove version and firmware
 X Move serial terminal logo over
-- Adjust subheader buttons
+X Adjust subheader buttons
