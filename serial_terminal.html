@@ -8,6 +8,8 @@
     <title>CYM Serial Terminal</title>
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/dark.css">
+    <link rel="stylesheet" href="https://use.typekit.net/qtk5kiq.css" />
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.12.1/css/all.css" crossorigin="anonymous">
     <link rel="apple-touch-icon" sizes="120x120" href="fav/apple-touch-icon.png">
     <link rel="icon" type="image/png" sizes="32x32" href="fav/favicon-32x32.png">
     <link rel="icon" type="image/png" sizes="16x16" href="fav/favicon-16x16.png">
@@ -23,47 +25,29 @@
         <div class="connection-controls">
             <div class="connection-controls-left">
                 <img src="assets/logo1.png"><p class="top-text"></p> 
-                <div class="dropdown-container">
-                    <label class="baud-rate-label" for="baudRate"></label>
-                    <select id="baudRate" class="dropdown" style="background-color: #333; color: white;">>
-                    <option value="2400">2400</option>
-                    <option value="4800">4800</option>
-                    <option value="9600">9600</option>
-                    <option value="19200">19200</option>
-                    <option value="38400">38400</option>
-                    <option value="57600">57600</option>
-                    <option selected value="115200">115200</option>
-                    <option value="230400">230400</option>
-                    <option value="460800">460800</option>
-                    <option value="921600">921600</option>
-                </select>
-            </div>
-            <div class="dropdown-container">
-                <label for="endOfLine"></label>
-                <select id="endOfLine" class="dropdown" style="background-color: #333; color: white;">>
-                <option value="none">None</option>
-                <option value="cr">Carriage Return (\r)</option>
-                <option value="lf">Line Feed (\n)</option>
-                <option value="crlf" selected>Both (\r\n)</option>
-            </select>
-        </div>
+               <div id="statusDisplay" class="status-display"></div> 
 
-  <div class="right">
-    <button id="butConnect" type="button">Connect</button>
-    <button id="butDisconnect" type="button" style="display:none;">Disconnect</button>
-    <button id="butSerialTerminal" type="button" onclick="window.location='https://fr4nkfletcher.github.io/Adafruit_WebSerial_ESPTool/';">Home</button>
-  </div>
+ 
 
 </header>
     
         
         </div>
-        <div class="connection-controls-right">
-            <button id="butHome" type="button" onclick="window.location.href='https://fr4nkfletcher.github.io/Adafruit_WebSerial_ESPTool/';">Home</button>
-        </div>
+        
         </div>
         
     </div>
+<main class="main">
+<div class="subheader">
+    <a id="butConnect"><i class="fas fa-plug"></i> Connect</a>
+    <a id="butDisconnect"style="display:none;"><i class="far fa-window-close"></i> Disconnect</a>
+    <a id="butSerialTerminal" href="https://fr4nkfletcher.github.io/Adafruit_WebSerial_ESPTool/"><i class="fas fa-bolt"></i> Home</a>
+    
+    <!-- Dropdowns added here -->
+
+
+</div>
+</main>
 <div id="terminalOutput" class="terminal-output" style="max-width: 100%; background-color:#000">
   <!-- Make sure this container has enough content to scroll -->
 </div>
@@ -74,14 +58,15 @@
     }
 
     #terminalOutput {
-        overflow-y: auto; /* Allows vertical scrolling to remain functional but without visible scrollbar */
+        overflow-y: hidden; /* Allows vertical scrolling to remain functional but without visible scrollbar */
         -ms-overflow-style: none; /* IE and Edge */
         scrollbar-width: none; /* Firefox */
     }
 </style>
 
-        
+
  <footer class="footer">
+      
   <div class="controls">
       <div class="terminal-input-row">
             <input type="text" id="terminalInput" class="terminal-input" placeholder="Type here to send data...">

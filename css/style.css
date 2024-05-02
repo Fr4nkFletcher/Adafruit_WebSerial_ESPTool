@@ -141,7 +141,7 @@ div.clear {
 .main {
   overflow-x: hidden;
   overflow-y: auto;
-  padding-top: 80px;
+  padding-top: 85px;
   background-color: #282b40;
 }
 
@@ -186,6 +186,8 @@ div.clear {
   font-size: 24px;
   font-weight: 500;
 }
+
+
 
 #app.connected #commands {
   height: 100px;
@@ -480,6 +482,14 @@ div.clear {
   overflow: hidden;
   position: absolute;
   z-index: -1;
+}
+
+.status-display {
+    text-align: left;    /* Centers text horizontally */
+    width: 75%;           /* Ensures the div takes the full width of its container */
+    margin: 0px 0;        /* Adds some vertical spacing, adjust as needed */
+    color: #ff9999;        /* Sets the text color, adjust based on your theme */
+    font-size: .75em;        /* Appropriate font size */
 }
 
 .firmware {

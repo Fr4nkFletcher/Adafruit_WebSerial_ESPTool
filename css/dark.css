@@ -122,6 +122,8 @@ input {
   align-items: center;
   padding: 10px 15px;
   box-sizing: border-box;
+  margin-left: 39px;  /* Moves the element to the right */
+  margin-top: 2px;
 }
 
 .connection-controls-left label {
@@ -144,42 +146,22 @@ a {
       }
 
 .terminal-output {
-  flex-grow: 1;
-  display: flex;
-  background-color: #000;
-  color: #cecece;
-  height: calc(100vh - 160px); /* Where 150px accounts for header/footer */
-  border: 0px solid #111111;
-  padding: 5px;
-  overflow-y: scroll;
-  overflow-x: auto;
-  margin-top: 90px;
-  margin-bottom: 15px;
-  white-space: pre;
-  word-wrap: break-word;
-  overflow-wrap: break-word; 
+    flex-grow: 1;
+    display: flex;
+    background-color: #000;
+    color: #cecece;
+    height: calc(100vh - 215px);  /* Adjust the subtracted value based on actual header/footer size */
+    padding: 5px;
+    overflow-y: scroll;  /* Allows scrolling within the element */
+    overflow-x: auto;  /* Allows horizontal scrolling if content overflows */
+    margin-top: -4px;  /* Adjust or remove if causing issues */
+    margin-bottom: 15px;
+    white-space: pre;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
 }
 
-/* Enhance scrollbar visibility for WebKit browsers */
-.terminal-output::-webkit-scrollbar {
-    width: 10px;  /* increase width for better visibility */
-}
 
-.terminal-output::-webkit-scrollbar-track {
-    background: #2e2e2e;  /* ensuring it's different enough from the thumb */
-}
-
-.terminal-output::-webkit-scrollbar-thumb {
-    background-color: #666;  /* slightly lighter to stand out against the track */
-    border-radius: 5px;  /* less rounded corners */
-    border: none;  /* removing border for a cleaner look */
-}
-
-/* Ensure scrollbar appears in Firefox */
-.terminal-output {
-    scrollbar-width: thin;  /* "auto" or "thin" */
-    scrollbar-color: #666 #2e2e2e;  /* thumb and track color */
-}
 
 
 
@@ -200,6 +182,6 @@ a {
 }
 
 .dropdown-container {
-    margin-bottom: 5px; 
-    margin-right: 10px;
+    margin-bottom: 0px; 
+    margin-right: 0px;
 }

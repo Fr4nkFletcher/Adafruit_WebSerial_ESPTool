@@ -21,8 +21,9 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
     async function updateStatus(message) {
-        statusDisplay.textContent = message; 
-    }
+    const statusDisplay = document.getElementById('statusDisplay'); // Ensure this ID matches your HTML
+    statusDisplay.textContent = message;  // Updates the text inside the status message div
+}
 
     async function connect() {
         if ('serial' in navigator) {
@@ -53,7 +54,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
     
     function getBaudRate() {
-        let baudRate = document.getElementById('baudRate').value;
+        let baudRate = 115200;
         if (baudRate === "custom") {
             baudRate = document.getElementById('baudRateCustom').value;
         }
@@ -109,7 +110,7 @@ function displayData(data) {
         const writer = port.writable.getWriter();
     
         try {
-            const eolOption = document.getElementById('endOfLine').value;
+            const eolOption = "clrf";
             let formattedData = typeof data === 'string' ? data : '';
             
             switch (eolOption) {
@@ -200,5 +201,5 @@ function displayData(data) {
         });
         inputField.value = '';
     });
-    updateStatus("Ready to connect. Please select a baud rate and end of line character set and press 'Connect'.");
+    updateStatus("Ready to connect.");
 });

@@ -21,6 +21,7 @@ input, select, button {
 }
 
 .subheader {
+  display: flex;
   height: 46px;
   line-height: 46px;
   padding-left: 70px;
