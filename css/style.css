@@ -284,8 +284,8 @@ div.clear {
 }
 
 .footer .center {
-    width: 76%;  // Ensures the div takes up all the available horizontal space
-    text-align: center;  // Centers the content text-wise
+    width: 76%; 
+    text-align: center; 
 }
 
 /* Generic Footer Button Styling */
