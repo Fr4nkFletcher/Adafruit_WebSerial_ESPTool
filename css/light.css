@@ -20,6 +20,18 @@ input, select, button {
   color: #000;
 }
 
+.disconnect-icon {
+    color: #FC9999; /* Light red color for disconnect icon */
+}
+
+.green-icon {
+    color: #B3FFCC;
+}
+
+.red-icon {
+    color: #FC9999;
+}
+
 .subheader {
   height: 46px;
   line-height: 46px;

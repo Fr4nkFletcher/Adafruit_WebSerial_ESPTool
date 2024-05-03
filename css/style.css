@@ -217,7 +217,9 @@ div.clear {
   padding: 0 60px;
 }
 
-
+.disconnect-icon {
+    color: #FC9999; /* Light red color for disconnect icon */
+}
 
 #log {
   max-width: 100%;
