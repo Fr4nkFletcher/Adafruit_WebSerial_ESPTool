@@ -236,6 +236,22 @@ div.clear {
   color: #cecece;
 }
 
+.green-icon {
+    color: #B3FFCC;
+}
+
+.red-icon {
+    color: #FC9999;
+}
+
+#butDisconnect i {
+    color: #FC9999; /* Light red color */
+}
+
+#butDisconnect2 a {
+    color: #FC9999; /* Light red color */
+}
+
 
 .footer {
     display: flex;

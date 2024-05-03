@@ -24,6 +24,15 @@ const offsets2 = [0x0, 0x8000, 0xE000, 0x10000];
 
 const appDiv = document.getElementById("app");
 
+document.getElementById('butConnect').addEventListener('click', function() {
+    var icon = this.querySelector('i');
+    if (icon.classList.contains('green-icon')) {
+        icon.classList.remove('green-icon');
+    } else {
+        icon.classList.add('green-icon');
+    }
+});
+
 
 
 document.addEventListener("DOMContentLoaded", () => {
@@ -224,38 +233,40 @@ async function clickConnect() {
 
     try {
         // Connection logic
-        // If connection is successful, enable the Program button
         checkDropdowns();
     } catch (err) {
-        // Handle errors
-        butProgram.disabled = false; // Keep or make the button disabled on error
+        console.error('Error during connection setup:', err);
+        butProgram.disabled = false; // Ensure button is disabled on error
     }
 
     const esploaderMod = await window.esptoolPackage;
-
     const esploader = await esploaderMod.connect({
-        log: (...args) => logMsg(...args),
-        debug: (...args) => debugMsg(...args),
-        error: (...args) => errorMsg(...args),
+        log: logMsg,
+        debug: debugMsg,
+        error: errorMsg
     });
+
     try {
         await esploader.initialize();
-
-        logMsg("Connected to " + esploader.chipName + " @ " + baudRates + "bps");
-        logMsg("MAC Address: " + formatMacAddr(esploader.macAddr()));
+        logMsg(`Connected to ${esploader.chipName} @ ${baudRates} bps`);
+        logMsg(`MAC Address: ${formatMacAddr(esploader.macAddr())}`);
 
         espStub = await esploader.runStub();
         toggleUIConnected(true);
         toggleUIToolbar(true);
+
         espStub.addEventListener("disconnect", () => {
             toggleUIConnected(false);
-            espStub = false;
+            espStub = undefined;
         });
     } catch (err) {
+        console.error('Initialization error:', err);
         await esploader.disconnect();
-        throw err;
+        throw err; // Re-throw the error to handle it elsewhere if needed
     }
 }
+
+
 
 async function changeBaudRate() {
     saveSetting("baudrate", baudRate.value);
@@ -549,15 +560,19 @@ function toggleUIToolbar(show) {
 
 function toggleUIConnected(connected) {
     let label = "Connect";
-    let iconClass = "fas fa-plug"; // Icon for Connect
+    let iconClass = "fas fa-plug"; // Default icon for "Connect"
+    let iconHtml = `<i class="${iconClass}"></i>`;
+
     if (connected) {
         label = "Disconnect";
-        iconClass = "far fa-window-close"; // Change this to your preferred icon for Disconnect
+        iconClass = "far fa-window-close red-icon"; // Change icon for "Disconnect" and apply red color
+        iconHtml = `<i class="${iconClass}"></i>`; // Redefine the icon HTML with the red class
     } else {
         toggleUIToolbar(false);
     }
-    // Update the button label and icon
-    document.getElementById('butConnect').innerHTML = `<i class="${iconClass}"></i> ${label}`;
+
+    // Update the button's HTML with the new icon and label
+    document.getElementById('butConnect').innerHTML = `${iconHtml} ${label}`;
 }
 
 function loadSetting(setting, defaultValue) {
@@ -583,3 +598,5 @@ function ucWords(text) {
 function sleep(ms) {
     return new Promise((resolve) => setTimeout(resolve, ms));
 }
+
+

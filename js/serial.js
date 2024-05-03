@@ -203,7 +203,7 @@ function displayData(data) {
     });
 
     clearButton.addEventListener('click', clearTerminal);
-    
+
     sendButton.addEventListener('click', () => {
         send(inputField.value).catch(error => {
             console.error('Send error:', error);
@@ -212,4 +212,13 @@ function displayData(data) {
         inputField.value = '';
     });
     updateStatus("Ready to connect.");
+
+document.getElementById('butConnect').addEventListener('click', function() {
+    var icon = this.querySelector('i');
+    if (icon.classList.contains('green-icon')) {
+        icon.classList.remove('green-icon');
+    } else {
+        icon.classList.add('green-icon');
+    }
+});    
 });
