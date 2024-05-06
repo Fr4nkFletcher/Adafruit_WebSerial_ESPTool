@@ -96,6 +96,26 @@ input, select, button {
   font-weight: 500;
 }
 
+#app #commands a {
+  text-decoration: none; /* Removes the underline from the links */
+  color: #000; /* Sets the text color to white */
+  background-color: transparent; /* No background color by default */
+  padding: 2px 10px; /* Padding around the text */
+  margin-right: -15px; /* Negative margin to pull elements closer together */
+  border: none; /* No borders around the links */
+  cursor: pointer; /* Cursor changes to pointer to indicate clickable items */
+  display: inline-block; /* Allows elements to sit next to each other */
+  transition: background-color 0.3s, border-radius 0.3s; /* Smooth transition for hover effects */
+  border-radius: 0; /* Initially no rounded corners */
+  line-height: 26px; /* Sets the line height to ensure proper spacing */
+}
+
+#app #commands a:hover {
+  background-color: #444; /* Dark gray background on hover */
+  border-radius: 23px; /* Rounded corners to create an oval shape */
+  color: #fff;
+}
+
 
 .notSupported, .notSupported a {
   background-color: red;
@@ -127,6 +147,10 @@ input, select, button {
     color: #000;
 }
 
+.footer a {
+  color: #444;
+}
+
 .remix button {
   border-color: #333;
   color: #333;
@@ -156,22 +180,28 @@ input, select, button {
   background-color: #ddd;
 }
 
-#commands .buttons button {
-  border-color: #333;
-}
 
-#commands .buttons button:disabled,
-#commands .buttons button:disabled:hover {
-  border-color: #ccc;
-  background-color: #ddd;
-  color: #888;
-}
-
-#commands .buttons button:hover {
-  background-color: #333;
-  color: #fff;
-}
 
 .progress-bar {
   border-color: #333;
+}
+
+.subheader a {
+  text-decoration: none; /* Removes the underline */
+  color: black; /* Inherits the text color from the subheader */
+  background-color: transparent; /* No background color by default */
+  padding: 2px 10px; /* Adjust horizontal padding for oval width */
+  margin-right: -15px; /* Spacing between items */
+  border: none; /* No borders */
+  cursor: pointer; /* Changes the cursor to indicate clickability */
+  display: inline-block; /* Aligns items in line */
+  transition: background-color 0.3s, border-radius 0.3s; /* Smooth transitions */
+  border-radius: 0; /* No rounded corners initially */
+  line-height: 26px; /* Adjust line height to control the total height including padding */
+}
+
+.subheader a:hover {
+  background-color: #444; /* Dark gray background on hover */
+  border-radius: 23px; /* Adjusted border-radius for a perfect oval */
+  color: white;
 }

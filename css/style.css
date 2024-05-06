@@ -45,42 +45,11 @@ button {
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
 }
 
-/* Specific button styling 
-.header button#butConnect,
-.header button#butDisconnect,
-.header button#butSerialTerminal, */
-.footer button#butClear,
-.main button#butProgram,
-.main button#butErase {
-  background-color: #44475a; /* Soft dark grey */
-  color: #f8f8f2; /* Off-white text */
-  border: 2px solid transparent; /* Prepare for hover effect */
-}
 
 
-/* Hover State for Buttons 
-.header button#butConnect:hover,
-.header button#butDisonnect:hover,
-.header button#butSerialTerminal:hover, */
-.footer button#butClear:hover,
 
-.main button#butProgram:hover,
-.main button#butErase:hover {
-  background-color: #6272a4; /* Light pinkish-purple */
-  border: 2px solid #f8f8f2; /* Brighter border color on hover */
-  color: #f8f8f2;
-}
 
-/* Active State for Buttons 
-.header button#butConnect:active,
-.header button#butDisconnect:active,
-.header button#butSerialTerminal:active, */
-.footer button#butClear:active,
-.main button#butProgram:active,
-.main button#butErase:active {
-  background-color: #bd93f9; /* Vibrant purple */
-  color: #282a36; /* Dark background color */
-}
+
 
 /* Disabled State for Buttons */
 button:disabled {
@@ -109,8 +78,24 @@ body {
   margin: 0;
 }
 
+#app #commands a {
+  text-decoration: none; /* Removes the underline from the links */
+  color: white; /* Sets the text color to white */
+  background-color: transparent; /* No background color by default */
+  padding: 2px 10px; /* Padding around the text */
+  margin-right: -15px; /* Negative margin to pull elements closer together */
+  border: none; /* No borders around the links */
+  cursor: pointer; /* Cursor changes to pointer to indicate clickable items */
+  display: inline-block; /* Allows elements to sit next to each other */
+  transition: background-color 0.3s, border-radius 0.3s; /* Smooth transition for hover effects */
+  border-radius: 0; /* Initially no rounded corners */
+  line-height: 26px; /* Sets the line height to ensure proper spacing */
+}
 
-
+#app #commands a:hover {
+  background-color: #444; /* Dark gray background on hover */
+  border-radius: 23px; /* Rounded corners to create an oval shape */
+}
 
 input,
 select,

@@ -74,7 +74,6 @@ body {
 
 
 
-
 input, select, button {
   background-color: #333;
   color: #fff;
@@ -106,16 +105,7 @@ input, select, button {
 }
 
 
-#commands button {
-  border-color: #fff;
-  background-color: #333;
-  color: #fff;
-}
 
-#commands button:hover {
-  background-color: #fff;
-  color: #333;
-}
 
 .notSupported, .notSupported a {
   background-color: red;
@@ -154,9 +144,7 @@ input {
   color: #ccc;
 }
 
-#commands .buttons button:hover {
-  background-color: #fff;
-}
+
 
 .progress-bar {
   border-color: #ff9999;
