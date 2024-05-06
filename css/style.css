@@ -293,7 +293,7 @@ div.clear {
   margin: 0 10px;
   border-radius: 4px; /* Slightly reduced for modern aesthetics */
   border: 2px solid transparent; /* Prepare for hover effect */
-  background-color: #44475a; /* Soft dark grey */
+   /* Soft dark grey */
   color: #f8f8f2; /* Off-white text */
   transition: background-color 0.3s, color 0.3s, border-color 0.3s; /* Smooth transition for hover effects */
   outline: none; /* Removes the outline to clean up the appearance */
