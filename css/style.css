@@ -57,9 +57,7 @@ button {
   border: 2px solid transparent; /* Prepare for hover effect */
 }
 
-.header button#butDisconnect {
 
-}
 /* Hover State for Buttons 
 .header button#butConnect:hover,
 .header button#butDisonnect:hover,
