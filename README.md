@@ -3,7 +3,7 @@
 Adafruit WebSerial tools fork for flashing ESP32Marauder to the Cheap Yellow Display and other variants.
 
 <p align="center">
-  <img src="https://github.com/Fr4nkFletcher/Adafruit_WebSerial_ESPTool/blob/main/assets/sc10.jpeg" alt="Demo 1">
+  <img src="https://github.com/Fr4nkFletcher/Adafruit_WebSerial_ESPTool/blob/main/assets/sc12.png" alt="Demo 1">
 </p>
 
 ## Local Development
