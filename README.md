@@ -18,10 +18,7 @@ npm install
 
 ## Origin
 
-This project started as a fork of [Adafruit WebSerial ESPTool](https://github.com/adafruit/Adafruit_WebSerial_ESPTool) written by
-[Melissa LeBlanc-Williams](https://github.com/makermelissa) in June 2021. At the time fo the fork, the original repository was a single-use website. This fork converted the code into a reusable package and published it to NPM.
-
-In March 2022 [Nabu Casa](https://www.nabucasa.com) took over maintenance from Adafruit and this fork became the main code base.
+This project was originally written by Melissa LeBlanc-Williams. Nabu Casa ported the code over to TypeScript and in March 2022 took over maintenance from Adafruit. In July 2022, the Nabucasa stopped maintaining the project in favor of an official, but very early release of Espressif's esptool-js. Due to the instability of the tool, Adafruit updated their fork with Nabucasa's changes in November 2022 and took over maintenance once again.
 
 
 Many thanks to the maintainers over at [FZEEFlasher](https://github.com/FZEEFlasher/fzeeflasher.github.io)
