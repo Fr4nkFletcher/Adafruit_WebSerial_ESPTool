@@ -8,7 +8,7 @@ const MCYDpreviousFiles = {
 const MCYDlatestFiles = {
     'bootloader': 'resources/STATIC/M/CYD/esp32_marauder.ino.bootloader.bin',
     'partitions': 'resources/STATIC/M/CYD/esp32_marauder.ino.partitions.bin',
-    'firmware': 'resources/CURRENT/esp32_marauder_v0_13_10_20240426_cyd_gpsnopwn.bin',
+    'firmware': 'resources/CURRENT/esp32_marauder_v1_0_0_20240627_cyd_gpsnopwn.bin',
 };
 
 
@@ -23,7 +23,7 @@ const MCYDNOGPSpreviousFiles = {
 const MCYDNOGPSlatestFiles = {
     'bootloader': 'resources/STATIC/M/CYD/esp32_marauder.ino.bootloader.bin',
     'partitions': 'resources/STATIC/M/CYD/esp32_marauder.ino.partitions.bin',
-    'firmware': 'resources/CURRENT/esp32_marauder_v0_13_10_20240428_cyd_nogpspwn.bin',
+    'firmware': 'resources/CURRENT/esp32_marauder_v1_0_0_20240627_cyd_nogpspwn.bin',
 };
 
 
@@ -39,7 +39,7 @@ const MCYD2USBpreviousFiles = {
 const MCYD2USBlatestFiles = {
     'bootloader': 'resources/STATIC/M/CYD/esp32_marauder.ino.bootloader.bin',
     'partitions': 'resources/STATIC/M/CYD/esp32_marauder.ino.partitions.bin',
-    'firmware': 'resources/CURRENT/esp32_marauder_v0_13_10_20240426_cyd2usb_gpsnopwn.bin',
+    'firmware': 'resources/CURRENT/esp32_marauder_v1_0_0_20240627_cyd2usb_gpsnopwn.bin',
 };
 
 
@@ -54,7 +54,7 @@ const MCYD2USBNOGPSpreviousFiles = {
 const MCYD2USBNOGPSlatestFiles = {
     'bootloader': 'resources/STATIC/M/CYD/esp32_marauder.ino.bootloader.bin',
     'partitions': 'resources/STATIC/M/CYD/esp32_marauder.ino.partitions.bin',
-    'firmware': 'resources/CURRENT/esp32_marauder_v0_13_10_20240428_cyd2usb_nogpspwn.bin',
+    'firmware': 'resources/CURRENT/esp32_marauder_v1_0_0_20240627_cyd2usb_nogpspwn.bin',
 };
 
 
