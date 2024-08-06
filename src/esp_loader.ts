@@ -551,7 +551,8 @@ export class ESPLoader extends EventTarget {
       await sleep(100);
     }
 
-    throw new Error("Couldn't sync to CYD. Unplug the usb and plug it back in. Hold RST --> press BOOT and let go while still holding RST --> let go of RST");
+    throw new Error("Couldn't sync to CYD.");
+    throw new Error("Unplug and restart. Hold RST --> tap BOOT--> release RST"); 
   }
 
   /**
