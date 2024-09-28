@@ -381,7 +381,7 @@ async function clickProgram() {
         });
     };
      const selectedModel = modelSelect.value;
-    //const selectedVersion = versionSelect.value;
+     const selectedVersion = versionSelect.value;
     //const selectedVariant = variantSelect.value;
      const progressBarDialog = createProgressBarDialog();
      const progress = document.getElementById("progress"); 
@@ -389,58 +389,14 @@ async function clickProgram() {
     let selectedFiles;
 
     if (selectedModel === "CYD") {
-        selectedFiles = MCYDlatestFiles;
+        selectedFiles = selectedVersion === "latest" ? MCYDlatestFiles : MCYDpreviousFiles;
     } else if (selectedModel === "CYDNOGPS") {
-        selectedFiles = MCYDNOGPSlatestFiles;
+        selectedFiles = selectedVersion === "latest" ? MCYDNOGPSlatestFiles : MCYDNOGPSpreviousFiles;
     } else if (selectedModel === "CYD2USB") {
-        selectedFiles = MCYD2USBlatestFiles;
+        selectedFiles = selectedVersion === "latest" ? MCYD2USBlatestFiles : MCYD2USBpreviousFiles;
     } else if (selectedModel === "CYD2USBNOGPS") {
-        selectedFiles = MCYD2USBNOGPSlatestFiles;
-    } else if (selectedModel === "S2") {
-		selectedFiles = selectedVersion === "latest" ? 
-			(selectedVariant === "Marauder" ? Mlatests2Files : 
-				(selectedVariant === "BlackMagic" ? Blatests2Files : "NULL")) 
-			: (selectedVariant === "Marauder" ? Mpreviouss2Files : 
-				(selectedVariant === "BlackMagic" ? Bpreviouss2Files : "NULL"));
-	} else if (selectedModel === "S2SD") {
-		selectedFiles = selectedVersion === "latest" ? 
-			(selectedVariant === "Marauder" ? Mlatests2SDFiles : 
-				(selectedVariant === "BlackMagic" ? Blatests2SDFiles : "NULL")) 
-			: (selectedVariant === "Marauder" ? Mpreviouss2SDFiles : 
-				(selectedVariant === "BlackMagic" ? Bpreviouss2SDFiles : "NULL"));
-	} else if (selectedModel === "WROOM") {
-		selectedFiles = selectedVersion === "latest" ? 
-			(selectedVariant === "Marauder" ? MlatestwroomFiles : "NULL") 
-			: (selectedVariant === "Marauder" ? MpreviouswroomFiles : "NULL");
-	} else if (selectedModel === "S3") {
-		selectedFiles = selectedVersion === "latest" ? 
-			(selectedVariant === "Marauder" ? MS3latestFiles : "NULL") 
-			: (selectedVariant === "Marauder" ? MS3previousFiles : "NULL");
-	} else if (selectedModel === "DevPro") {
-		selectedFiles = selectedVersion === "latest" ? 
-			(selectedVariant === "Marauder" ? MDevProlatestFiles : "NULL") 
-			: (selectedVariant === "Marauder" ? MDevPropreviousFiles : "NULL");
-	} else if (selectedModel === "D1Mini") {
-		selectedFiles = selectedVersion === "latest" ? 
-			(selectedVariant === "Marauder" ? MD1MinilatestFiles : "NULL") 
-			: (selectedVariant === "Marauder" ? MD1MinipreviousFiles : "NULL");
-	} else if (selectedModel === "V6Board") {
-		selectedFiles = selectedVersion === "latest" ? 
-			(selectedVariant === "Marauder" ? MV6latestFiles : "NULL") 
-			: (selectedVariant === "Marauder" ? MV6previousFiles : "NULL");
-	} else if (selectedModel === "V6Mini") {
-		selectedFiles = selectedVersion === "latest" ? 
-			(selectedVariant === "Marauder" ? MV6MinilatestFiles : "NULL") 
-			: (selectedVariant === "Marauder" ? MV6MinipreviousFiles : "NULL");
-	} else if (selectedModel === "V6_1Board") {
-		selectedFiles = selectedVersion === "latest" ? 
-			(selectedVariant === "Marauder" ? MV6_1BoardlatestFiles : "NULL") 
-			: (selectedVariant === "Marauder" ? MV6_1BoardpreviousFiles : "NULL");
-	} else if (selectedModel === "KitPackage") {
-		selectedFiles = selectedVersion === "latest" ? 
-			(selectedVariant === "Marauder" ? MKitlatestFiles : "NULL") 
-			: (selectedVariant === "Marauder" ? MKitpreviousFiles : "NULL");
-	}
+        selectedFiles = selectedVersion === "latest" ? MCYD2USBNOGPSlatestFiles : MCYD2USBNOGPSpreviousFiles;
+    } 
 
    
     const flashMessages = document.getElementById("flashMessages");
