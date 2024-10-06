@@ -145,6 +145,7 @@ div.clear {
   padding-left: 70px;
   padding-right: 70px;
   color: white;
+  background-color: #1F285E;
 }
 
 .subheader a {
@@ -175,6 +176,7 @@ div.clear {
 
 #app.connected #commands {
   height: 100px;
+  background-color: #1F285E;
 }
 
 #app.connected #log {
@@ -249,7 +251,7 @@ div.clear {
     right: 0;
     bottom: 0;
     height: 26px;
-    background-color: #262a4d;
+    background-color: #1F285E;
     color: #ffffff;
 }
 

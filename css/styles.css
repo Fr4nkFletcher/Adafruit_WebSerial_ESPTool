@@ -136,6 +136,7 @@ div.clear {
     padding-left: 70px;
     padding-right: 70px;
     color: white;
+    background-color: #1F285E;
 }
   
 .subheader a {
@@ -167,6 +168,7 @@ div.clear {
     overflow-y: auto;
     scrollbar-width: none;
     -ms-overflow-style: none;
+    background-color: #1F285E;
 }
 
 #app.connected #commands::-webkit-scrollbar {
@@ -255,7 +257,7 @@ div.clear {
     right: 0;
     bottom: 0;
     height: 23px;
-    background-color: #262a4d;
+    background-color: #1F285E;
     color: #ffffff;
 }
   
@@ -576,10 +578,9 @@ div.clear {
     justify-content: space-between; /* Ensure all elements stay aligned and spaced */
     gap: 1px; /* Minimal gap between elements */
     padding: 1px; /* Reduced padding to fit more compactly */
-    background-color: #34495e;
+    background-color: transparent;
     border-radius: 4px;
     transition: all 0.2s ease;
-    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.1); /* Softer, less pronounced shadow */
   }
   
   /* Hover effect */
