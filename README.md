@@ -1,38 +1,28 @@
 ## [CYM Web Flasher](https://fr4nkfletcher.github.io/Adafruit_WebSerial_ESPTool/)
 
-Adafruit WebSerial tools fork for flashing ESP32Marauder to the Cheap Yellow Display and other variants.
----
-<p align="center">
-  <i>Method 1: Automatic flashing process</i>
-</p>
-<p align="center">
-  <img src="https://github.com/Fr4nkFletcher/Adafruit_WebSerial_ESPTool/blob/main/assets/sc0001.jpg" alt="Flashing Marauder Automatically">
-</p>
-
+A fork of Adafruit’s WebSerial tool for flashing ESP32Marauder onto the Cheap Yellow Display and similar devices.
 
 ---
+
+### Flashing Methods
+
+#### 1. Automatic Flashing
+This method flashes the ESP32Marauder firmware without needing to manually configure the bootloader, partitions, firmware, or memory addresses.
 <p align="center">
-  <i>Method 2: Manual flashing process with custom bootloader, partitions, and firmware settings</i>
+  <img src="https://github.com/Fr4nkFletcher/Adafruit_WebSerial_ESPTool/blob/main/assets/sc00000.jpg" alt="Flashing Marauder Automatically">
 </p>
+
+#### 2. Manual Flashing
+Allows advanced users to specify the bootloader, partitions, and firmware, allowing you to upload the project of your choosing.
+
 <p align="center">
   <img src="https://github.com/Fr4nkFletcher/Adafruit_WebSerial_ESPTool/blob/main/assets/sc0000.jpg" alt="Manual Flashing">
 </p>
 
-
-## [Manual Flasher](https://fr4nkfletcher.github.io/Adafruit_WebSerial_ESPTool/manual.html)
+For manual flashing, visit:  
+[Manual Flasher](https://fr4nkfletcher.github.io/Adafruit_WebSerial_ESPTool/manual.html)
 
 ---
-
-### Flashing ESP32Marauder and other projects: Two Methods
-
-This flasher provides two ways to flash the ESP32Marauder firmware or whatever you want onto your device:
-
-1. **Automatic Flashing**  
-   As shown in the first image, this method allows you to flash the ESP32Marauder firmware without the need to manually specify the bootloader, partitions, or firmware addresses in memory. The tool handles everything automatically, streamlining the flashing process.
-
-2. **Manual Flashing**  
-   In the second image, you can see the manual process of flashing where you have the option to choose and configure the bootloader, partitions, and firmware. This method provides more control, allowing you to specify the addresses in memory where each component should be flashed. This is particularly useful for advanced users who want to fine-tune their setup.
-
 ## Local Development
 
 ```
