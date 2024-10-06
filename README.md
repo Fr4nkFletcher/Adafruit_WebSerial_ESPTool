@@ -17,7 +17,9 @@ Adafruit WebSerial tools fork for flashing ESP32Marauder to the Cheap Yellow Dis
 <p align="center">
   <i>Method 2: Manual flashing process with custom bootloader, partitions, and firmware settings</i>
 </p>
+
 ## [Manual Flasher](https://fr4nkfletcher.github.io/Adafruit_WebSerial_ESPTool/manual.html)
+
 ---
 
 ### Flashing ESP32Marauder and other projects: Two Methods
