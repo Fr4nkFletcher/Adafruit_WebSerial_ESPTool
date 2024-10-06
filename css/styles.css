@@ -249,12 +249,12 @@ div.clear {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 20px 70px;
+    padding: 19px 70px;
     position: fixed;
     left: 0;
     right: 0;
     bottom: 0;
-    height: 24px;
+    height: 23px;
     background-color: #262a4d;
     color: #ffffff;
 }
@@ -465,6 +465,7 @@ div.clear {
   
 #commands .upload {
     width: 600px;
+    height: 25px;
     display: flex;
     align-items: center;
     margin: 5px auto;
@@ -564,49 +565,49 @@ div.clear {
 
 /* New styles for the upload container */
 /* Main container for uploads */
-.upload-container {
-    display: flex;
-    flex-direction: column;
-    gap: 4px; /* Further reduced gap between upload rows */
-    padding: 6px; /* Less padding */
-    background-color: #2c3e50;
-    border-radius: 6px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.12); /* Softer shadow */
-  }
+/* Main container for uploads */
+/* Main container for uploads */
+
   
   /* Each upload row */
   .upload {
     display: flex;
     align-items: center;
-    height: 24px;
-    justify-content: space-between; /* Ensure all elements stay aligned */
-    gap: 2px; /* Minimal gap between elements */
-    padding: 2px; /* Reduced padding to fit more compactly */
+    justify-content: space-between; /* Ensure all elements stay aligned and spaced */
+    gap: 1px; /* Minimal gap between elements */
+    padding: 1px; /* Reduced padding to fit more compactly */
     background-color: #34495e;
     border-radius: 4px;
     transition: all 0.2s ease;
-    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1); /* Lighter shadow */
+    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.1); /* Softer, less pronounced shadow */
+  }
+  
+  /* Hover effect */
+  .upload:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 3px 8px rgba(0, 0, 0, 0.15);
   }
   
   /* Offset input label and field */
   .offset-label {
     display: flex;
     align-items: center;
-    color: #ecf0f1;
-    font-size: 10px; /* Smaller font */
+    color: #000000;
   }
   
   .offset {
-    width: 45px; /* Smaller width */
-    padding: 4px; /* Less padding */
+    width: 50px; /* Smaller width */
+    padding: 6px; /* Less padding */
     border: none;
     background-color: #2c3e50;
     color: #ecf0f1;
-    border-radius: 4px;
+    border-radius: 2px;
     text-align: center;
     font-weight: 500;
-    box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.1);
+    box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.15);
     transition: background-color 0.2s ease;
+    margin-left: 5px;
+    margin-right: 10px;
   }
   
   .offset:focus {
@@ -617,16 +618,19 @@ div.clear {
   /* Firmware button */
   .firmware {
     display: flex;
+    width: 93px;
     align-items: center;
     cursor: pointer;
-    padding: 4px 10px; /* Reduced padding */
+    padding: 2px 12px; /* Reduced padding */
     background-color: #2980b9;
     color: #ecf0f1;
     border-radius: 4px;
-    font-size: 10px; /* Smaller font */
+    font-size: 12px; /* Slightly smaller font */
     font-weight: 500;
     transition: background-color 0.2s ease, transform 0.1s ease;
-    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.12);
+    margin-left: 10px;
+    margin-right: 10px;
   }
   
   .firmware:hover {
@@ -638,33 +642,17 @@ div.clear {
     display: none;
   }
   
-  /* Program and Erase buttons */
-  button {
-    padding: 4px 8px; /* Compact button sizes */
-    font-size: 10px; /* Smaller font size */
-    background-color: #2ecc71;
-    color: #ffffff;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-    transition: background-color 0.2s ease;
-    width: 120px;
-  }
-  
-  button:hover {
-    background-color: #27ae60;
-  }
-  
   /* Progress bar adjustments */
   .progress-bar {
     flex-grow: 1;
-    height: 4px; /* Even smaller height */
+    width: 315px;
+    height: 6px; /* Even smaller height */
     background-color: #44475a;
     border: 1px solid #6272a4;
     border-radius: 4px;
     overflow: hidden;
-    margin-left: 4px; /* Tight margin */
-    box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.1);
+    margin-left: 6px; /* Tight margin */
+    box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.15);
   }
   
   .progress-bar > div {
@@ -673,4 +661,3 @@ div.clear {
     width: 0;
     transition: width 0.2s ease;
   }
-  
