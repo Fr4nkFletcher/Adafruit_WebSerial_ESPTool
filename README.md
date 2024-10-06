@@ -16,7 +16,7 @@ This method flashes the ESP32Marauder firmware without needing to manually confi
 Allows advanced users to specify the bootloader, partitions, and firmware, allowing you to upload the project of your choosing.
 
 <p align="center">
-  <img src="https://github.com/Fr4nkFletcher/Adafruit_WebSerial_ESPTool/blob/main/assets/scman.jpg" alt="Manual Flashing">
+  <img src="https://github.com/Fr4nkFletcher/Adafruit_WebSerial_ESPTool/blob/main/assets/scman1.png" alt="Manual Flashing">
 </p>
 
 For manual flashing, visit:  
