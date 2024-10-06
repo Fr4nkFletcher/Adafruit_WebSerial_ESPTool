@@ -3,7 +3,7 @@
 Adafruit WebSerial tools fork for flashing ESP32Marauder to the Cheap Yellow Display and other variants.
 
 <p align="center">
-  <img src="https://github.com/Fr4nkFletcher/Adafruit_WebSerial_ESPTool/blob/main/assets/sc0000.jpg" alt="Flashing Marauder Automatically">
+  <img src="https://github.com/Fr4nkFletcher/Adafruit_WebSerial_ESPTool/blob/main/assets/sc0001.jpg" alt="Flashing Marauder Automatically">
 </p>
 <p align="center">
   <i>Method 1: Automatic flashing process</i>
@@ -12,7 +12,7 @@ Adafruit WebSerial tools fork for flashing ESP32Marauder to the Cheap Yellow Dis
 ---
 
 <p align="center">
-  <img src="https://github.com/Fr4nkFletcher/Adafruit_WebSerial_ESPTool/blob/main/assets/sc0001.jpg" alt="Manual Flashing">
+  <img src="https://github.com/Fr4nkFletcher/Adafruit_WebSerial_ESPTool/blob/main/assets/sc0000.jpg" alt="Manual Flashing">
 </p>
 <p align="center">
   <i>Method 2: Manual flashing process with custom bootloader, partitions, and firmware settings</i>
