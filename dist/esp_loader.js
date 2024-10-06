@@ -441,7 +441,8 @@ export class ESPLoader extends EventTarget {
             }
             await sleep(100);
         }
-        throw new Error("Couldn't sync to ESP. Try resetting.");
+        throw new Error("Couldn't sync to CYD.");
+        throw new Error("Unplug and restart. Hold RST --> tap BOOT--> release RST");
     }
     /**
      * @name _sync

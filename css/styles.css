@@ -1,0 +1,676 @@
+.header {
+    box-sizing: border-box;
+    display: flex;
+    align-items: center;
+    font-size: 16px;
+    height: 85px;
+    line-height: 40px;
+    padding: 20px 70px 0px 70px; /* TRouBLe */
+    position: fixed;
+    width: 100%;
+    z-index: 1000;
+    margin: 0;
+    background: #000;
+    border-bottom: 5px solid #6272a4;
+    box-shadow: 0 8px 6px -6px #000;
+}
+  
+.header h1 {
+    flex: 1;
+    font-size: 15px;
+    font-weight: 400;
+}
+  
+.header .left, .header .right {
+    padding-right:2px;
+    padding-left: 0px;  /* Reduces padding inside the left and right containers */
+    margin: 0;   /* Reduces margin, bringing elements closer */
+}
+  
+/* Common button styling */
+button {
+    font-size: 14px;
+    font-weight: 600;
+    padding: 10px 10px;
+    margin: 0 10px;
+    margin-right: 10px;
+    margin-left: 0px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    outline: none;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+}
+  
+/* Disabled State for Buttons */
+button:disabled {
+    background-color: #6272a4;
+    color: #999;
+    cursor: not-allowed;
+}
+  
+/* Adding a glow effect on focus for accessibility */
+button:focus {
+    box-shadow: 0 0 10px #bd93f9;
+}
+  
+/* Styling for small screens */
+@media (max-width: 768px) {
+    button {
+        font-size: 12px;
+        padding: 8px 16px;
+    }
+}
+  
+body {
+    font-family: proxima-nova, sans-serif;
+    font-style: normal;
+    font-weight: 400;
+    margin: 0;
+}
+  
+#app #commands a {
+    text-decoration: none;
+    color: white;
+    background-color: transparent;
+    padding: 2px 10px;
+    margin-right: -15px;
+    border: none;
+    cursor: pointer;
+    display: inline-block;
+    transition: background-color 0.3s, border-radius 0.3s;
+    border-radius: 0;
+    line-height: 26px;
+}
+  
+#app #commands a:hover {
+    background-color: #444;
+    border-radius: 23px;
+}
+  
+input,
+select,
+button,
+label {
+    font-weight: 600;
+    outline: none;
+}
+  
+div.left {
+    float: left;
+    display: flex;
+    align-items: center;
+}
+  
+div.right {
+    float: right;
+    display: flex;
+    align-items: center;
+}
+  
+div.clear {
+    clear: both;
+}
+  
+.main {
+    overflow-x: hidden;
+    overflow-y: auto;
+    padding-top: 85px;
+    background-color: #262a4d;
+}
+  
+.hidden {
+    display: none;
+}
+  
+.notSupported {
+    padding: 1em;
+    margin-top: 1em;
+    margin-bottom: 1em;
+}
+  
+.subheader {
+    height: 46px;
+    line-height: 46px;
+    padding-left: 70px;
+    padding-right: 70px;
+    color: white;
+}
+  
+.subheader a {
+    text-decoration: none;
+    color: inherit;
+    background-color: transparent;
+    padding: 2px 10px;
+    margin-right: -15px;
+    border: none;
+    cursor: pointer;
+    display: inline-block;
+    transition: background-color 0.3s, border-radius 0.3s;
+    border-radius: 0;
+    line-height: 26px;
+}
+  
+.subheader a:hover {
+    background-color: #444;
+    border-radius: 23px;
+}
+  
+.subheader .title {
+    font-size: 24px;
+    font-weight: 500;
+}
+  
+#app.connected #commands {
+    height: 178px;
+    overflow-y: auto;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+}
+
+#app.connected #commands::-webkit-scrollbar {
+    width: 0;
+    height: 0;
+    display: none;
+}
+  
+#app.connected #log {
+    height: calc(100vh - 350px);
+    overflow-y: auto;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+}
+
+#app.connected #log::-webkit-scrollbar {
+    width: 0;
+    height: 0;
+    display: none;
+}
+  
+#app #commands {
+    height: 0;
+}
+  
+#app #log {
+    height: calc(100vh - 228px);
+}
+  
+#commands,
+#log {
+    transition: height 0.5s;
+}
+  
+#commands {
+    position: relative;
+    margin: 0 auto;
+    overflow-y: auto;
+    padding: 0 60px;
+}
+  
+.disconnect-icon {
+    color: #FC9999;
+}
+  
+#log {
+    max-width: 100%;
+    font-family: pt-mono, monospace;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 11px;
+    overflow-x: hidden;
+    overflow-x: auto;
+    transition: color 0.1s linear;
+    padding: 0 50px;
+    border: 20px solid #000;
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+    background-color: #000;
+    color: #cecece;
+}
+  
+.green-icon {
+    color: #B3FFCC;
+}
+  
+.red-icon {
+    color: #FC9999;
+}
+  
+#butDisconnect i {
+    color: #FC9999;
+}
+  
+#butDisconnect2 a {
+    color: #FC9999;
+}
+  
+.footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 70px;
+    position: fixed;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    height: 24px;
+    background-color: #262a4d;
+    color: #ffffff;
+}
+  
+.footer .center,
+.footer .controls {
+    flex: 1;
+    text-align: center;
+}
+  
+.footer a {
+    color: #4A90E2;
+}
+  
+.footer .controls {
+    line-height: 45px;
+}
+  
+.footer .center {
+    width: 76%; 
+    text-align: center; 
+}
+  
+/* Generic Footer Button Styling */
+.footer button {
+    font-size: 14px;
+    padding: 10px 20px;
+    margin: 0 10px;
+    border-radius: 4px;
+    border: 2px solid transparent;
+    color: #f8f8f2;
+    transition: background-color 0.3s, color 0.3s, border-color 0.3s;
+    outline: none;
+    cursor: pointer;
+    box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2);
+}
+  
+/* Hover State for Footer Buttons */
+.footer button:hover {
+    background-color: #6272a4;
+    color: #f8f8f2;
+    border-color: #bd93f9;
+}
+  
+/* Active State for Footer Buttons */
+.footer button:active {
+    background-color: #FF5555;
+    color: #f8f8f2;
+    border-color: #ff79c6;
+}
+  
+/* Disabled State for Footer Buttons */
+.footer button:disabled {
+    background-color: #6272a4;
+    color: #999999;
+    cursor: not-allowed;
+    border-color: transparent;
+}
+  
+/* Clear Text Button Specific Styling */
+.footer button#butClear {
+    position: relative;
+    top: -4px;
+    font-size: 16px;
+    border-radius: 15px;
+}
+  
+/* Send Button Specific Styling - assuming #butSend is another button you might add */
+.footer button#butSend {
+    font-size: 16px;
+    border-radius: 15px;
+}
+  
+/* Adding a glow effect on focus for accessibility */
+.footer button:focus {
+    box-shadow: 0 0 8px #bd93f9;
+}
+  
+/* Styling for small screens to ensure usability */
+@media (max-width: 768px) {
+    .footer button {
+        font-size: 12px;
+        padding: 8px 15px;
+    }
+}
+  
+.remix {
+    display: flex;
+    justify-content: center;
+    height: 60px;
+    position: relative;
+}
+  
+.remix button {
+    position: absolute;
+    bottom: 11px;
+}
+  
+#templates {
+    display: none;
+}
+  
+/* On/Off Switch Widget */
+.onoffswitch {
+    display: inline-block;
+    position: relative;
+    width: 50px;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    margin-left: 10px;
+}
+  
+.onoffswitch-checkbox {
+    display: none;
+}
+  
+.onoffswitch-label {
+    display: block;
+    overflow: hidden;
+    cursor: pointer;
+    border: 1px solid #900;
+    border-radius: 12px;
+    transition: border 0.3s ease-in 0s;
+}
+  
+.onoffswitch-inner {
+    display: block;
+    width: 200%;
+    margin-left: -100%;
+    transition: margin 0.3s ease-in 0s;
+}
+  
+.onoffswitch-inner:before,
+.onoffswitch-inner:after {
+    display: block;
+    float: left;
+    width: 50%;
+    height: 25px;
+    padding: 0;
+    line-height: 25px;
+    font-size: 14px;
+    color: white;
+    font-family: proxima-nova, sans-serif;
+    font-style: normal;
+    font-weight: 600;
+    box-sizing: border-box;
+}
+  
+.onoffswitch-inner:before {
+    content: "on";
+    padding-left: 8px;
+    background-color: #8ec641;
+    color: #fff;
+    text-align: left;
+}
+  
+.onoffswitch-inner:after {
+    content: "off";
+    padding-right: 6px;
+    background-color: #c64141;
+    color: #fff;
+    text-align: right;
+}
+  
+.onoffswitch-switch {
+    display: block;
+    width: 19px;
+    margin: 3px;
+    background: #44475a;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    right: 27px;
+    border: 1px solid #900;
+    border-radius: 15px;
+    transition: all 0.3s ease-in 0s;
+}
+  
+.onoffswitch-checkbox:checked + .onoffswitch-label {
+    border-color: #71ae1e;
+}
+  
+.onoffswitch-checkbox:checked + .onoffswitch-label .onoffswitch-inner {
+    margin-left: 0;
+}
+  
+.onoffswitch-checkbox:checked + .onoffswitch-label .onoffswitch-switch {
+    right: 0px;
+    border-color: #67ac38;
+}
+  
+.footer .onoffswitch {
+    margin-right: 20px;
+    top: 7px;
+}
+  
+#butClear {
+    margin-top: 10px;
+}
+  
+#commands {
+    min-width: 600px;
+    justify-content: center;
+    position: relative;
+    align-items: center;
+}
+  
+#commands .upload {
+    width: 600px;
+    display: flex;
+    align-items: center;
+    margin: 5px auto;
+    justify-content: center;
+}
+  
+#commands .upload .offset {
+    width: 50px;
+}
+  
+#commands .upload label {
+    white-space: nowrap;
+}
+  
+.firmware > input {
+    width: 0.1px;
+    height: 0.1px;
+    opacity: 0;
+    overflow: hidden;
+    position: absolute;
+    z-index: -1;
+}
+  
+.status-display {
+    text-align: left;
+    width: 75%;
+    margin: 0px 0;
+    color: #ff9999;
+    font-size: .75em;
+}
+  
+.firmware {
+    border-style: solid;
+    margin-left: 20px;
+    margin-right: 20px;
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+}
+  
+.firmware > svg {
+    margin-right: 10px;
+}
+  
+.debug-function {
+    color: #8ec641;
+}
+  
+.error-message {
+    color: #c64141;
+}
+  
+.timestamp {
+    color: #8ec641;
+}
+  
+.progress-bar {
+    width: 100%;
+    height: 24px;
+    border-style: solid;
+    border-width: 2px;
+    border-radius: 10px;
+    padding: 0;
+    overflow: hidden;
+    background-color: #44475a;
+    border-color: #6272a4;
+}
+
+.progress-bar > div {
+    height: 24px;
+    background-color: #6272a4;
+    width: 0;
+}
+  
+#commands .buttons {
+    display: flex;
+    justify-content: center;
+    width: 600px;
+    margin: 10px auto;
+}
+  
+#commands .buttons button {
+    margin-left: 10px;
+    margin-right: 10px;
+    border-width: 2px;
+    border-style: solid;
+}
+
+.justify {
+    display: flex;
+    justify-content: space-between;
+}
+
+.center {
+    text-align: center;
+}
+
+/* New styles for the upload container */
+/* Main container for uploads */
+.upload-container {
+    display: flex;
+    flex-direction: column;
+    gap: 4px; /* Further reduced gap between upload rows */
+    padding: 6px; /* Less padding */
+    background-color: #2c3e50;
+    border-radius: 6px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.12); /* Softer shadow */
+  }
+  
+  /* Each upload row */
+  .upload {
+    display: flex;
+    align-items: center;
+    height: 24px;
+    justify-content: space-between; /* Ensure all elements stay aligned */
+    gap: 2px; /* Minimal gap between elements */
+    padding: 2px; /* Reduced padding to fit more compactly */
+    background-color: #34495e;
+    border-radius: 4px;
+    transition: all 0.2s ease;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1); /* Lighter shadow */
+  }
+  
+  /* Offset input label and field */
+  .offset-label {
+    display: flex;
+    align-items: center;
+    color: #ecf0f1;
+    font-size: 10px; /* Smaller font */
+  }
+  
+  .offset {
+    width: 45px; /* Smaller width */
+    padding: 4px; /* Less padding */
+    border: none;
+    background-color: #2c3e50;
+    color: #ecf0f1;
+    border-radius: 4px;
+    text-align: center;
+    font-weight: 500;
+    box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.1);
+    transition: background-color 0.2s ease;
+  }
+  
+  .offset:focus {
+    background-color: #3b4e66;
+    outline: none;
+  }
+  
+  /* Firmware button */
+  .firmware {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    padding: 4px 10px; /* Reduced padding */
+    background-color: #2980b9;
+    color: #ecf0f1;
+    border-radius: 4px;
+    font-size: 10px; /* Smaller font */
+    font-weight: 500;
+    transition: background-color 0.2s ease, transform 0.1s ease;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+  }
+  
+  .firmware:hover {
+    background-color: #3498db;
+    transform: translateY(-1px);
+  }
+  
+  .firmware input[type="file"] {
+    display: none;
+  }
+  
+  /* Program and Erase buttons */
+  button {
+    padding: 4px 8px; /* Compact button sizes */
+    font-size: 10px; /* Smaller font size */
+    background-color: #2ecc71;
+    color: #ffffff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+    width: 120px;
+  }
+  
+  button:hover {
+    background-color: #27ae60;
+  }
+  
+  /* Progress bar adjustments */
+  .progress-bar {
+    flex-grow: 1;
+    height: 4px; /* Even smaller height */
+    background-color: #44475a;
+    border: 1px solid #6272a4;
+    border-radius: 4px;
+    overflow: hidden;
+    margin-left: 4px; /* Tight margin */
+    box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.1);
+  }
+  
+  .progress-bar > div {
+    height: 100%;
+    background-color: #6272a4;
+    width: 0;
+    transition: width 0.2s ease;
+  }
+  

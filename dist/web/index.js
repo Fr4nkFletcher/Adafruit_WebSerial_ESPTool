@@ -7684,7 +7684,7 @@ class ESPLoader extends EventTarget {
             }
             await sleep(100);
         }
-        throw new Error("Couldn't sync to ESP. Try resetting.");
+        throw new Error("Couldn't sync to CYD.");
     }
     /**
      * @name _sync
