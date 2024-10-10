@@ -19,8 +19,9 @@ Allows advanced users to specify the bootloader, partitions, and firmware, allow
   <img src="https://github.com/Fr4nkFletcher/Adafruit_WebSerial_ESPTool/blob/main/assets/scman1.png" alt="Manual Flashing">
 </p>
 
-For manual flashing, visit:  
-[Manual Flasher](https://fr4nkfletcher.github.io/Adafruit_WebSerial_ESPTool/manual.html)
+For manual flashing, visit:  [Manual Flasher](https://fr4nkfletcher.github.io/Adafruit_WebSerial_ESPTool/manual.html)
+
+For further instructions on manually flashing, checking out @Blough's [tutorial](https://github.com/witnessmenow/ESP-Web-Tools-Tutorial).
 
 ---
 ## Local Development
