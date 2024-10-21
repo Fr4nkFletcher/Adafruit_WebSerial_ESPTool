@@ -396,8 +396,11 @@ async function clickProgram() {
         selectedFiles = selectedVersion === "latest" ? MCYD2USBlatestFiles : MCYD2USBpreviousFiles;
     } else if (selectedModel === "CYD2USBNOGPS") {
         selectedFiles = selectedVersion === "latest" ? MCYD2USBNOGPSlatestFiles : MCYD2USBNOGPSpreviousFiles;
-    } 
-
+    } else if (selectedModel === "CYD24NOGPS") {
+        selectedFiles = selectedVersion === "latest" ? MCYD24NOGPSlatestFiles : MCYD24NOGPSpreviousFiles;
+    } else if (selectedModel === "CYD24GPS") {
+        selectedFiles = selectedVersion === "latest" ? MCYD24GPSlatestFiles : MCYD24GPSpreviousFiles;
+    }
    
     const flashMessages = document.getElementById("flashMessages");
     
@@ -457,6 +460,10 @@ async function clickProgram() {
         } else if (selectedModel === "CYD2USB") {
             offset = [0x1000, 0x8000, 0x10000][fileTypes.indexOf(fileType)];
         } else if (selectedModel === "CYD2USBNOGPS") {
+            offset = [0x1000, 0x8000, 0x10000][fileTypes.indexOf(fileType)];        
+        } else if (selectedModel === "CYD24GPS") {
+            offset = [0x1000, 0x8000, 0x10000][fileTypes.indexOf(fileType)];
+        } else if (selectedModel === "CYD24NOGPS") {
             offset = [0x1000, 0x8000, 0x10000][fileTypes.indexOf(fileType)];        
         }
 
