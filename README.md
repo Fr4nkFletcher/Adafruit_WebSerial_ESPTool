@@ -21,7 +21,7 @@ Specifies the bootloader, partitions, bootapp, and firmware to upload your chose
 
 For manual flashing, visit:  [Manual Flasher](https://fr4nkfletcher.github.io/Adafruit_WebSerial_ESPTool/manual.html)
 
-For further instructions on manually flashing, checking out @Blough's [tutorial](https://github.com/witnessmenow/ESP-Web-Tools-Tutorial).
+For further instructions, check out @Blough's [tutorial](https://github.com/witnessmenow/ESP-Web-Tools-Tutorial).
 
 ---
 ## Local Development
