@@ -389,17 +389,53 @@ async function clickProgram() {
     let selectedFiles;
 
     if (selectedModel === "CYD") {
-        selectedFiles = selectedVersion === "latest" ? MCYDlatestFiles : MCYDpreviousFiles;
+        if (selectedVersion === "latest") {
+            selectedFiles = MCYDlatestFiles;
+        } else if (selectedVersion === "previous1") {
+            selectedFiles = MCYDprevious1Files;
+        } else if (selectedVersion === "previous13") {
+            selectedFiles = MCYDprevious13Files;
+        }
     } else if (selectedModel === "CYDNOGPS") {
-        selectedFiles = selectedVersion === "latest" ? MCYDNOGPSlatestFiles : MCYDNOGPSpreviousFiles;
+        if (selectedVersion === "latest") {
+            selectedFiles = MCYDNOGPSlatestFiles;
+        } else if (selectedVersion === "previous1") {
+            selectedFiles = MCYDNOGPSprevious1Files;
+        } else if (selectedVersion === "previous13") {
+            selectedFiles = MCYDNOGPSprevious13Files;
+        }
     } else if (selectedModel === "CYD2USB") {
-        selectedFiles = selectedVersion === "latest" ? MCYD2USBlatestFiles : MCYD2USBpreviousFiles;
+        if (selectedVersion === "latest") {
+            selectedFiles = MCYD2USBlatestFiles;
+        } else if (selectedVersion === "previous1") {
+            selectedFiles = MCYD2USBprevious1Files;
+        } else if (selectedVersion === "previous13") {
+            selectedFiles = MCYD2USBprevious13Files;
+        }
     } else if (selectedModel === "CYD2USBNOGPS") {
-        selectedFiles = selectedVersion === "latest" ? MCYD2USBNOGPSlatestFiles : MCYD2USBNOGPSpreviousFiles;
+        if (selectedVersion === "latest") {
+            selectedFiles = MCYD2USBNOGPSlatestFiles;
+        } else if (selectedVersion === "previous1") {
+            selectedFiles = MCYD2USBNOGPSprevious1Files;
+        } else if (selectedVersion === "previous13") {
+            selectedFiles = MCYD2USBNOGPSprevious13Files;
+        }
     } else if (selectedModel === "CYD24NOGPS") {
-        selectedFiles = selectedVersion === "latest" ? MCYD24NOGPSlatestFiles : MCYD24NOGPSpreviousFiles;
+        if (selectedVersion === "latest") {
+            selectedFiles = MCYD24NOGPSlatestFiles;
+        } else if (selectedVersion === "previous1") {
+            selectedFiles = MCYD24NOGPSprevious1Files;
+        } else if (selectedVersion === "previous13") {
+            selectedFiles = MCYD24NOGPSprevious13Files;
+        }
     } else if (selectedModel === "CYD24GPS") {
-        selectedFiles = selectedVersion === "latest" ? MCYD24GPSlatestFiles : MCYD24GPSpreviousFiles;
+        if (selectedVersion === "latest") {
+            selectedFiles = MCYD24GPSlatestFiles;
+        } else if (selectedVersion === "previous1") {
+            selectedFiles = MCYD24GPSprevious1Files;
+        } else if (selectedVersion === "previous13") {
+            selectedFiles = MCYD24GPSprevious13Files;
+        }
     }
    
     const flashMessages = document.getElementById("flashMessages");
