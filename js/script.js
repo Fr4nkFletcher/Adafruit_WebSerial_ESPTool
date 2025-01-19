@@ -391,53 +391,37 @@ async function clickProgram() {
     if (selectedModel === "CYD") {
         if (selectedVersion === "latest") {
             selectedFiles = MCYDlatestFiles;
-        } else if (selectedVersion === "previous1") {
-            selectedFiles = MCYDprevious1Files;
-        } else if (selectedVersion === "previous13") {
-            selectedFiles = MCYDprevious13Files;
         }
     } else if (selectedModel === "CYDNOGPS") {
         if (selectedVersion === "latest") {
             selectedFiles = MCYDNOGPSlatestFiles;
-        } else if (selectedVersion === "previous1") {
-            selectedFiles = MCYDNOGPSprevious1Files;
-        } else if (selectedVersion === "previous13") {
-            selectedFiles = MCYDNOGPSprevious13Files;
         }
     } else if (selectedModel === "CYD2USB") {
         if (selectedVersion === "latest") {
             selectedFiles = MCYD2USBlatestFiles;
-        } else if (selectedVersion === "previous1") {
-            selectedFiles = MCYD2USBprevious1Files;
-        } else if (selectedVersion === "previous13") {
-            selectedFiles = MCYD2USBprevious13Files;
         }
     } else if (selectedModel === "CYD2USBNOGPS") {
         if (selectedVersion === "latest") {
             selectedFiles = MCYD2USBNOGPSlatestFiles;
-        } else if (selectedVersion === "previous1") {
-            selectedFiles = MCYD2USBNOGPSprevious1Files;
-        } else if (selectedVersion === "previous13") {
-            selectedFiles = MCYD2USBNOGPSprevious13Files;
-        }
+        } 
     } else if (selectedModel === "CYD24NOGPS") {
         if (selectedVersion === "latest") {
             selectedFiles = MCYD24NOGPSlatestFiles;
-        } else if (selectedVersion === "previous1") {
-            selectedFiles = MCYD24NOGPSprevious1Files;
-        } else if (selectedVersion === "previous13") {
-            selectedFiles = MCYD24NOGPSprevious13Files;
         }
     } else if (selectedModel === "CYD24GPS") {
         if (selectedVersion === "latest") {
             selectedFiles = MCYD24GPSlatestFiles;
-        } else if (selectedVersion === "previous1") {
-            selectedFiles = MCYD24GPSprevious1Files;
-        } else if (selectedVersion === "previous13") {
-            selectedFiles = MCYD24GPSprevious13Files;
+        }
+    } else if (selectedModel === "CYD35NOGPS") {
+        if (selectedVersion === "latest") {
+            selectedFiles = MCYD35NOGPSlatestFiles;
+        } 
+    } else if (selectedModel === "CYD35GPS") {
+        if (selectedVersion === "latest") {
+            selectedFiles = MCYD35GPSlatestFiles;
         }
     }
-   
+
     const flashMessages = document.getElementById("flashMessages");
     
     butErase.disabled = true;
@@ -501,7 +485,11 @@ async function clickProgram() {
             offset = [0x1000, 0x8000, 0x10000][fileTypes.indexOf(fileType)];
         } else if (selectedModel === "CYD24NOGPS") {
             offset = [0x1000, 0x8000, 0x10000][fileTypes.indexOf(fileType)];        
-        }
+        } else if (selectedModel === "CYD35GPS") {
+            offset = [0x1000, 0x8000, 0x10000][fileTypes.indexOf(fileType)];
+        } else if (selectedModel === "CYD35NOGPS") {
+            offset = [0x1000, 0x8000, 0x10000][fileTypes.indexOf(fileType)];        
+        }  
 
         try {
             let binfile = new File([await fetch(fileResource).then(r => r.blob())], fileType + ".bin");
