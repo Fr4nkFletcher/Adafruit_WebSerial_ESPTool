@@ -388,39 +388,29 @@ async function clickProgram() {
 
     let selectedFiles;
 
-    if (selectedModel === "CYD") {
-        if (selectedVersion === "latest") {
-            selectedFiles = MCYDlatestFiles;
-        }
-    } else if (selectedModel === "CYDNOGPS") {
-        if (selectedVersion === "latest") {
-            selectedFiles = MCYDNOGPSlatestFiles;
-        }
-    } else if (selectedModel === "CYD2USB") {
-        if (selectedVersion === "latest") {
-            selectedFiles = MCYD2USBlatestFiles;
-        }
-    } else if (selectedModel === "CYD2USBNOGPS") {
-        if (selectedVersion === "latest") {
-            selectedFiles = MCYD2USBNOGPSlatestFiles;
-        } 
-    } else if (selectedModel === "CYD24NOGPS") {
-        if (selectedVersion === "latest") {
-            selectedFiles = MCYD24NOGPSlatestFiles;
-        }
-    } else if (selectedModel === "CYD24GPS") {
-        if (selectedVersion === "latest") {
-            selectedFiles = MCYD24GPSlatestFiles;
-        }
-    } else if (selectedModel === "CYD35NOGPS") {
-        if (selectedVersion === "latest") {
-            selectedFiles = MCYD35NOGPSlatestFiles;
-        } 
-    } else if (selectedModel === "CYD35GPS") {
-        if (selectedVersion === "latest") {
-            selectedFiles = MCYD35GPSlatestFiles;
-        }
+    const modelFilesMap = {
+    "CYD": MCYDlatestFiles,
+    "CYDNOGPS": MCYDNOGPSlatestFiles,
+    "CYD2USB": MCYD2USBlatestFiles,
+    "CYD2USBNOGPS": MCYD2USBNOGPSlatestFiles,
+    "CYD24NOGPS": MCYD24NOGPSlatestFiles,
+    "CYD24GPS": MCYD24GPSlatestFiles,
+    "CYD24GNOGPS": MCYD24GNOGPSlatestFiles,
+    "CYD24GGPS": MCYD24GGPSlatestFiles,
+    "CYD35NOGPS": MCYD35NOGPSlatestFiles,
+    "CYD35GPS": MCYD35GPSlatestFiles
+};
+
+if (selectedVersion === "latest") {
+    selectedFiles = modelFilesMap[selectedModel];
+    if (!selectedFiles) {
+        console.error(`No files found for model: ${selectedModel}`);
+        // Handle the error, e.g., show a message to the user
     }
+} else {
+    console.error(`Unsupported version: ${selectedVersion}`);
+    // Handle the error, e.g., show a message to the user
+}
 
     const flashMessages = document.getElementById("flashMessages");
     
@@ -469,43 +459,38 @@ async function clickProgram() {
         }
     };
     
+    const offsetsMap = {
+        "CYD": [0x1000, 0x8000, 0x10000],
+        "CYDNOGPS": [0x1000, 0x8000, 0x10000],
+        "CYD2USB": [0x1000, 0x8000, 0x10000],
+        "CYD2USBNOGPS": [0x1000, 0x8000, 0x10000],
+        "CYD24GPS": [0x1000, 0x8000, 0x10000],
+        "CYD24NOGPS": [0x1000, 0x8000, 0x10000],
+        "CYD24GGPS": [0x1000, 0x8000, 0x10000], 
+        "CYD24GNOGPS": [0x1000, 0x8000, 0x10000],
+        "CYD35GPS": [0x1000, 0x8000, 0x10000],
+        "CYD35NOGPS": [0x1000, 0x8000, 0x10000]
+    };
+    
     for (let fileType of fileTypes) {
         let fileResource = selectedFiles[fileType];
-
-        let offset;
-                    if (selectedModel === "CYD") {
-            offset = [0x1000, 0x8000, 0x10000][fileTypes.indexOf(fileType)];
-        } else if (selectedModel === "CYDNOGPS") {
-            offset = [0x1000, 0x8000, 0x10000][fileTypes.indexOf(fileType)];
-        } else if (selectedModel === "CYD2USB") {
-            offset = [0x1000, 0x8000, 0x10000][fileTypes.indexOf(fileType)];
-        } else if (selectedModel === "CYD2USBNOGPS") {
-            offset = [0x1000, 0x8000, 0x10000][fileTypes.indexOf(fileType)];        
-        } else if (selectedModel === "CYD24GPS") {
-            offset = [0x1000, 0x8000, 0x10000][fileTypes.indexOf(fileType)];
-        } else if (selectedModel === "CYD24NOGPS") {
-            offset = [0x1000, 0x8000, 0x10000][fileTypes.indexOf(fileType)];        
-        } else if (selectedModel === "CYD35GPS") {
-            offset = [0x1000, 0x8000, 0x10000][fileTypes.indexOf(fileType)];
-        } else if (selectedModel === "CYD35NOGPS") {
-            offset = [0x1000, 0x8000, 0x10000][fileTypes.indexOf(fileType)];        
-        }  
-
+        let offset = offsetsMap[selectedModel][fileTypes.indexOf(fileType)];
+    
         try {
             let binfile = new File([await fetch(fileResource).then(r => r.blob())], fileType + ".bin");
             let contents = await readUploadedFileAsArrayBuffer(binfile);
-
+    
             await espStub.flashData(
                 contents,
                 (cumulativeFlashedSize) => updateProgressBar(cumulativeFlashedSize),
                 offset
             );
-
-            updateProgressBar(totalSize); 
-
+    
+            updateProgressBar(totalSize);
+    
             annMsg(` ---> Finished flashing ${fileType}.`);
             annMsg(` `);
-
+    
             await sleep(100);
         } catch (e) {
             errorMsg(e);
