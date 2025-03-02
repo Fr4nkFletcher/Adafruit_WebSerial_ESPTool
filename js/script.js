@@ -51,7 +51,7 @@ document.addEventListener("DOMContentLoaded", () => {
     butProgram.addEventListener("click", clickProgram);
     butClear.addEventListener("click", clickClear);
     autoscroll.addEventListener("click", clickAutoscroll);
-    darkMode.addEventListener("click", clickDarkMode);
+    //darkMode.addEventListener("click", clickDarkMode);
     window.addEventListener("error", function (event) {
         console.log("Got an uncaught error: ", event.error);
     });
