@@ -399,10 +399,12 @@ async function clickProgram() {
     "CYD24GGPS": MCYD24GGPSlatestFiles,
     "CYD35NOGPS": MCYD35NOGPSlatestFiles,
     "CYD35GPS": MCYD35GPSlatestFiles,
+    "CYD35CAPNOGPS": MCYD35CAPNOGPSlatestFiles,
+    "CYD35CAPGPS": MCYD35CAPGPSlatestFiles,
     "CYD32NOGPS": MCYD32NOGPSlatestFiles,
     "CYD32GPS": MCYD32GPSlatestFiles,
     "CYD32CAPNOGPS": MCYD32CAPNOGPSlatestFiles,
-    "CYD32CAPGPS": MCYD32CAPGPSlatestFiles 
+    "CYD32CAPGPS": MCYD32CAPGPSlatestFiles
 };
 
 if (selectedVersion === "latest") {
@@ -474,11 +476,12 @@ if (selectedVersion === "latest") {
         "CYD24GNOGPS": [0x1000, 0x8000, 0x10000],
         "CYD35GPS": [0x1000, 0x8000, 0x10000],
         "CYD35NOGPS": [0x1000, 0x8000, 0x10000],
+        "CYD35CAPGPS": [0x1000, 0x8000, 0x10000],
+        "CYD35CAPNOGPS": [0x1000, 0x8000, 0x10000],
         "CYD32GPS": [0x1000, 0x8000, 0x10000],
         "CYD32NOGPS": [0x1000, 0x8000, 0x10000],
         "CYD32CAPGPS": [0x1000, 0x8000, 0x10000],
         "CYD32CAPNOGPS": [0x1000, 0x8000, 0x10000]
-
     };
     
     for (let fileType of fileTypes) {
