@@ -356,6 +356,28 @@ div.clear {
   display: none;
 }
 
+#modelSelect {
+  background-color: #333; /* Existing dropdown background */
+  color: white; /* Existing text color */
+  scrollbar-color: #333 #000; /* For Firefox: thumb #333, track #000 */
+}
+
+#modelSelect::-webkit-scrollbar {
+  width: 8px; /* Sets the scrollbar width */
+}
+
+#modelSelect::-webkit-scrollbar-track {
+  background: #000; /* Black background for the track */
+}
+
+#modelSelect::-webkit-scrollbar-thumb {
+  background: #333; /* Dark gray for the thumb, matching dropdown */
+}
+
+#modelSelect::-webkit-scrollbar-thumb:hover {
+  background: #444; /* Slightly lighter on hover for visibility */
+}
+
 /* On/Off Switch Widget */
 .onoffswitch {
   display: inline-block;
