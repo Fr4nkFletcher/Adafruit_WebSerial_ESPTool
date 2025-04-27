@@ -61,7 +61,7 @@
       window.esptoolPackage = import(
         // In development we import locally.
         window.location.hostname === "localhost"
-          ? "/dist/web/index.js"
+          ? "https://cdn.jsdelivr.net/gh/adafruit/Adafruit_WebSerial_ESPTool@latest/dist/web/index.js"
           : "https://cdn.jsdelivr.net/gh/adafruit/Adafruit_WebSerial_ESPTool@latest/dist/web/index.js"
       );
     </script>
@@ -102,6 +102,9 @@
                 <select id="modelSelect" class="dropdown"style="background-color: #333; color: white;">
                   <option value="NULL" disabled selected style="display:none;"><b>--- SELECT BOARD ---</b></option>
                   <optgroup label="--- SELECT BOARD ---">
+          <optgroup label="+ ESP32-1732S019 1.9&quot; Cheap-Yellow-Display">
+            <option value="SYD">- Type-C w/o touch 1.9"</option>
+          </optgroup>
           <optgroup label="+ ESP32-2432S024C 2.4&quot; Cheap-Yellow-Display">
             <option value="CYD24CAPGPS">- Type-C Capacitive 2.4"</option>
             <option value="CYD24CAPNOGPS">- Type-C Capacitive 2.4" w/o GPS</option>  

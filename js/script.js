@@ -367,116 +367,120 @@ async function clickErase() {
 async function clickProgram() {
     const readUploadedFileAsArrayBuffer = (inputFile) => {
         const reader = new FileReader();
-
         return new Promise((resolve, reject) => {
             reader.onerror = () => {
                 reader.abort();
                 reject(new DOMException("Problem parsing input file."));
             };
-
             reader.onload = () => {
                 resolve(reader.result);
             };
             reader.readAsArrayBuffer(inputFile);
         });
     };
-     const selectedModel = modelSelect.value;
-     const selectedVersion = versionSelect.value;
-    //const selectedVariant = variantSelect.value;
-     const progressBarDialog = createProgressBarDialog();
-     const progress = document.getElementById("progress"); 
+
+    const selectedModel = modelSelect.value;
+    const selectedVersion = versionSelect.value;
+    const progressBarDialog = createProgressBarDialog();
+    const progress = document.getElementById("progress"); 
 
     let selectedFiles;
-
     const modelFilesMap = {
-    "CYD": MCYDlatestFiles,
-    "CYDNOGPS": MCYDNOGPSlatestFiles,
-    "CYD2USB": MCYD2USBlatestFiles,
-    "CYD2USBNOGPS": MCYD2USBNOGPSlatestFiles,
-    "CYD24NOGPS": MCYD24NOGPSlatestFiles,
-    "CYD24GPS": MCYD24GPSlatestFiles,
-    "CYD24GNOGPS": MCYD24GNOGPSlatestFiles,
-    "CYD24GGPS": MCYD24GGPSlatestFiles,
-    "CYD24CAPNOGPS": MCYD24CAPNOGPSlatestFiles,
-    "CYD24CAPGPS": MCYD24CAPGPSlatestFiles,
-    "CYD35NOGPS": MCYD35NOGPSlatestFiles,
-    "CYD35GPS": MCYD35GPSlatestFiles,
-    "CYD35CAPNOGPS": MCYD35CAPNOGPSlatestFiles,
-    "CYD35CAPGPS": MCYD35CAPGPSlatestFiles,
-    "CYD32NOGPS": MCYD32NOGPSlatestFiles,
-    "CYD32GPS": MCYD32GPSlatestFiles,
-    "CYD32CAPNOGPS": MCYD32CAPNOGPSlatestFiles,
-    "CYD32CAPGPS": MCYD32CAPGPSlatestFiles
-};
+        "SYD": MSYDlatestFiles,
+        "CYD": MCYDlatestFiles,
+        "CYDNOGPS": MCYDNOGPSlatestFiles,
+        "CYD2USB": MCYD2USBlatestFiles,
+        "CYD2USBNOGPS": MCYD2USBNOGPSlatestFiles,
+        "CYD24NOGPS": MCYD24NOGPSlatestFiles,
+        "CYD24GPS": MCYD24GPSlatestFiles,
+        "CYD24GNOGPS": MCYD24GNOGPSlatestFiles,
+        "CYD24GGPS": MCYD24GGPSlatestFiles,
+        "CYD24CAPNOGPS": MCYD24CAPNOGPSlatestFiles,
+        "CYD24CAPGPS": MCYD24CAPGPSlatestFiles,
+        "CYD35NOGPS": MCYD35NOGPSlatestFiles,
+        "CYD35GPS": MCYD35GPSlatestFiles,
+        "CYD35CAPNOGPS": MCYD35CAPNOGPSlatestFiles,
+        "CYD35CAPGPS": MCYD35CAPGPSlatestFiles,
+        "CYD32NOGPS": MCYD32NOGPSlatestFiles,
+        "CYD32GPS": MCYD32GPSlatestFiles,
+        "CYD32CAPNOGPS": MCYD32CAPNOGPSlatestFiles,
+        "CYD32CAPGPS": MCYD32CAPGPSlatestFiles
+    };
 
-if (selectedVersion === "latest") {
-    selectedFiles = modelFilesMap[selectedModel];
-    if (!selectedFiles) {
-        console.error(`No files found for model: ${selectedModel}`);
-        // Handle the error, e.g., show a message to the user
+    if (selectedVersion === "latest") {
+        selectedFiles = modelFilesMap[selectedModel];
+        if (!selectedFiles) {
+            console.error(`No files found for model: ${selectedModel}`);
+            // Handle the error (e.g., show a message to the user)
+            return;
+        }
+    } else {
+        console.error(`Unsupported version: ${selectedVersion}`);
+        // Handle the error (e.g., show a message to the user)
+        return;
     }
-} else {
-    console.error(`Unsupported version: ${selectedVersion}`);
-    // Handle the error, e.g., show a message to the user
-}
 
     const flashMessages = document.getElementById("flashMessages");
-    
+    // Disable buttons during flashing
     butErase.disabled = true;
     butProgram.disabled = true;
 
-    const fileTypes = ['bootloader', 'partitions', 'firmware'];
+    // Prepare user feedback messages
     initMsg(` `);
     initMsg(` !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! `);
-    initMsg(` !!!&nbsp;&nbsp; FLASHING STARTED! DO NOT UNPLUG &nbsp;!!! `);
-    initMsg(` !!!&nbsp;&nbsp;&nbsp;&nbsp; UNTIL FLASHING IS COMPLETE!! &nbsp;&nbsp;!!! `);
+    initMsg(` !!!   FLASHING STARTED! DO NOT UNPLUG   !!! `);
+    initMsg(` !!!    UNTIL FLASHING IS COMPLETE!!    !!! `);
     initMsg(` !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! `);
     initMsg(` `);
-    const flashingMessages = document.getElementById("flashMessages");
-    flashingMessages.innerHTML = "";
+    flashMessages.innerHTML = "";
 
-    totalSize = 0; 
-    flashedSize = 0;
-    
+    // Calculate total size of all files to flash for progress tracking
+    let totalSize = 0;
+    let flashedSize = 0;
+    let fileTypes;
+    if (selectedModel === "SYD") {
+        // Include boot_app0 for SYD model
+        fileTypes = ['bootloader', 'partitions', 'boot_app0', 'firmware'];
+    } else {
+        // Other models only have these three
+        fileTypes = ['bootloader', 'partitions', 'firmware'];
+    }
     for (let fileType of fileTypes) {
         let fileResource = selectedFiles[fileType];
         let response = await fetch(fileResource, { method: 'HEAD' });
         let fileSize = response.headers.get('content-length');
-    
         if (fileSize) {
             totalSize += parseInt(fileSize, 10);
         } else {
             console.error(`Failed to get size for file type: ${fileType}`);
         }
     }
-        
+
+    // Function to update the progress bar UI
     const updateProgressBar = (cumulativeFlashedSize) => {
         if (cumulativeFlashedSize > totalSize) {
             console.error(`Cumulative flashed size exceeds total size: ${cumulativeFlashedSize} / ${totalSize}`);
         } else {
-            flashedSize = cumulativeFlashedSize; 
+            flashedSize = cumulativeFlashedSize;
         }
-    
         const progressPercentage = Math.min((flashedSize / totalSize) * 100, 100);
-        //console.log(`Flashing progress: ${progressPercentage.toFixed(2)}%`); 
-       
-        // Update the progress bar in the UI
         const progressBar = document.getElementById("progress");
         if (progressBar) {
             progressBar.style.width = `${progressPercentage}%`;
         }
     };
-    
+
     const offsetsMap = {
+        "SYD": [0x0, 0x8000, 0xE000, 0x10000],
         "CYD": [0x1000, 0x8000, 0x10000],
         "CYDNOGPS": [0x1000, 0x8000, 0x10000],
         "CYD2USB": [0x1000, 0x8000, 0x10000],
         "CYD2USBNOGPS": [0x1000, 0x8000, 0x10000],
         "CYD24GPS": [0x1000, 0x8000, 0x10000],
         "CYD24NOGPS": [0x1000, 0x8000, 0x10000],
-        "CYD24GGPS": [0x1000, 0x8000, 0x10000], 
+        "CYD24GGPS": [0x1000, 0x8000, 0x10000],
         "CYD24GNOGPS": [0x1000, 0x8000, 0x10000],
-        "CYD24CAPGPS": [0x1000, 0x8000, 0x10000], 
+        "CYD24CAPGPS": [0x1000, 0x8000, 0x10000],
         "CYD24CAPNOGPS": [0x1000, 0x8000, 0x10000],
         "CYD35GPS": [0x1000, 0x8000, 0x10000],
         "CYD35NOGPS": [0x1000, 0x8000, 0x10000],
@@ -487,34 +491,35 @@ if (selectedVersion === "latest") {
         "CYD32CAPGPS": [0x1000, 0x8000, 0x10000],
         "CYD32CAPNOGPS": [0x1000, 0x8000, 0x10000]
     };
-    
+
+    // Flash each file in sequence at the specified offsets
     for (let fileType of fileTypes) {
         let fileResource = selectedFiles[fileType];
         let offset = offsetsMap[selectedModel][fileTypes.indexOf(fileType)];
-    
         try {
-            let binfile = new File([await fetch(fileResource).then(r => r.blob())], fileType + ".bin");
-            let contents = await readUploadedFileAsArrayBuffer(binfile);
-    
+            // Fetch the binary data for the file
+            let binFile = new File([await fetch(fileResource).then(r => r.blob())], fileType + ".bin");
+            let contents = await readUploadedFileAsArrayBuffer(binFile);
+
+            // Flash the binary data to the device at the given offset
             await espStub.flashData(
                 contents,
                 (cumulativeFlashedSize) => updateProgressBar(cumulativeFlashedSize),
                 offset
             );
-    
+
+            // Update progress to full for this file and announce completion
             updateProgressBar(totalSize);
-    
             annMsg(` ---> Finished flashing ${fileType}.`);
             annMsg(` `);
-    
             await sleep(100);
         } catch (e) {
             errorMsg(e);
         }
     }
 
+    // Close the progress dialog and re-enable buttons after flashing all files
     progressBarDialog.remove();
-
     butErase.disabled = false;
     butProgram.disabled = false;
     flashMessages.style.display = "none";

@@ -1,3 +1,11 @@
+// Latest Marauder for SYD
+const MSYDlatestFiles = {
+    'bootloader': 'resources/STATIC/M/SYD/esp32_marauder.ino.bootloader.bin',
+    'partitions': 'resources/STATIC/M/SYD/esp32_marauder.ino.partitions.bin',
+    'boot_app0': 'resources/STATIC/M/SYD/boot_app0.bin',
+    'firmware': 'resources/CURRENT/esp32_marauder_v1_4_3_20250427_sydfinal.bin',
+};
+
 // Latest Marauder for CYD
 const MCYDlatestFiles = {
     'bootloader': 'resources/STATIC/M/CYD/esp32_marauder.ino.bootloader.bin',
